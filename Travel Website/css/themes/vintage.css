@@ -1,0 +1,41 @@
+/* Theme: Vintage Postcard / Retro Travel
+   Muted teal + mustard + cream, slab-serif headlines, ticket-stub chips. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Lora:wght@400;500;600&display=swap');
+
+:root,
+:root[data-theme="dark"] {
+    --font-heading: 'DM Serif Display', Georgia, serif;
+    --font-body: 'Lora', Georgia, serif;
+
+    --bg-primary: #f4ecd6;
+    --bg-secondary: #ebdfbf;
+    --bg-card: #fbf4dd;
+    --bg-glass: rgba(244, 236, 214, 0.86);
+
+    --text-primary: #2b2419;
+    --text-secondary: #5a4f3a;
+    --text-muted: #8a7d62;
+
+    --accent-forest: #1f5453;
+    --accent-forest-hover: #2a6968;
+    --accent-terracotta: #c97b3a;
+    --accent-terracotta-hover: #db8d4c;
+    --accent-gold: #e0a83f;
+    --accent-gold-gradient: linear-gradient(135deg, #e0a83f, #c97b3a);
+
+    --border-color: rgba(43, 36, 25, 0.16);
+    --border-glass: rgba(43, 36, 25, 0.10);
+    --shadow-sm: 2px 2px 0 rgba(43,36,25,0.10);
+    --shadow-md: 4px 4px 0 rgba(43,36,25,0.12);
+    --shadow-lg: 6px 6px 0 rgba(43,36,25,0.14);
+}
+
+body { background:
+    radial-gradient(circle at 1px 1px, rgba(43,36,25,0.06) 1px, transparent 0) 0 0/14px 14px,
+    var(--bg-primary);
+}
+h1, h2, h3, h4 { font-weight: 400; letter-spacing: 0; }
+.btn { border-radius: 0 !important; border: 2px solid var(--text-primary) !important; box-shadow: 3px 3px 0 var(--text-primary) !important; }
+.btn-primary { background: var(--accent-terracotta) !important; color: #fff !important; }
+.badge, .count-badge, .dest-tag { border-radius: 0 !important; border: 1.5px dashed var(--text-primary) !important; background: transparent !important; color: var(--text-primary) !important; }
+.dest-card, .book-row, .takeaway { border: 1.5px solid var(--text-primary) !important; border-radius: 2px !important; }

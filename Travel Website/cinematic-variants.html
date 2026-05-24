@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinematic Variants | Desk2Destinations</title>
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #0a0908; color: #f4ead9; font-family: 'Inter', sans-serif; min-height: 100vh; padding: 60px 24px; }
+        .wrap { max-width: 1280px; margin: 0 auto; }
+        .head { text-align: center; margin-bottom: 60px; }
+        .head .kicker { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.35em; color: #d4a878; margin-bottom: 16px; display: block; }
+        .head h1 { font-family: 'Instrument Serif', serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 400; line-height: 1; letter-spacing: -0.02em; margin-bottom: 18px; }
+        .head h1 em { font-style: italic; color: #d4a878; }
+        .head p { color: #a59685; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+        .head a.back { display: inline-block; margin-top: 22px; color: #a59685; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.18em; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; }
+        .card { border-radius: 20px; overflow: hidden; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+        .card:hover { transform: translateY(-8px); }
+        .card .preview { aspect-ratio: 16/10; padding: 32px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: end; }
+        .card .preview::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.6) 100%); z-index: 0; }
+        .card .preview .pkicker { position: relative; z-index: 1; font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 10px; }
+        .card .preview h3 { position: relative; z-index: 1; font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; line-height: 0.95; letter-spacing: -0.02em; }
+        .card .preview h3 em { font-style: italic; }
+        .card .body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+        .card .body .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 10px; font-weight: 600; }
+        .card .body h2 { font-family: 'Instrument Serif', serif; font-size: 1.7rem; font-weight: 400; margin-bottom: 10px; letter-spacing: -0.01em; }
+        .card .body p { color: #a59685; font-size: 0.92rem; line-height: 1.55; flex: 1; }
+        .card .body .open { margin-top: 18px; display: inline-flex; align-items: center; gap: 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; transition: gap 0.3s; }
+        .card:hover .open { gap: 18px; }
+
+        /* GOLD */
+        .v-gold { background: #14110d; border: 1px solid rgba(212,168,120,0.15); }
+        .v-gold .preview { background: linear-gradient(135deg, #0a0908, #1a1410), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=900&auto=format&fit=crop') center/cover; background-blend-mode: overlay; }
+        .v-gold .pkicker, .v-gold .body .tag, .v-gold .body .open { color: #d4a878; }
+        .v-gold .preview h3 em { color: #d4a878; }
+        .v-gold .preview h3 { color: #f4ead9; }
+
+        /* IVORY */
+        .v-ivory { background: #f4ecdb; color: #1a2238; border: 1px solid rgba(184,65,15,0.18); }
+        .v-ivory .preview { background: #f4ecdb; }
+        .v-ivory .preview::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=900&auto=format&fit=crop') center/cover; opacity: 0.35; }
+        .v-ivory .preview::after { background: linear-gradient(180deg, rgba(244,236,219,0.4), rgba(244,236,219,0.95)); }
+        .v-ivory .pkicker, .v-ivory .body .tag, .v-ivory .body .open { color: #b8410f; }
+        .v-ivory .preview h3 { color: #1a2238; }
+        .v-ivory .preview h3 em { color: #b8410f; }
+        .v-ivory .body { background: #f4ecdb; color: #1a2238; }
+        .v-ivory .body p { color: #5a6478; }
+
+        /* MONO */
+        .v-mono { background: #0c0c0c; border: 1px solid rgba(240,238,233,0.15); }
+        .v-mono .preview { background: linear-gradient(135deg, #0c0c0c, #1a1a1a), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=900&auto=format&fit=crop') center/cover; background-blend-mode: overlay; }
+        .v-mono .pkicker, .v-mono .body .tag, .v-mono .body .open { color: #898680; }
+        .v-mono .preview h3 { color: #f0eee9; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; }
+        .v-mono .preview h3 em { color: #f0eee9; opacity: 0.7; }
+
+        /* EMERALD */
+        .v-emerald { background: #122019; border: 1px solid rgba(212,136,74,0.2); }
+        .v-emerald .preview { background: linear-gradient(135deg, #0a1612, #1a2820), url('https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=900&auto=format&fit=crop') center/cover; background-blend-mode: overlay; filter: hue-rotate(-10deg); }
+        .v-emerald .pkicker, .v-emerald .body .tag, .v-emerald .body .open { color: #d4884a; }
+        .v-emerald .preview h3 { color: #ecdfc5; }
+        .v-emerald .preview h3 em { color: #d4884a; }
+        .v-emerald .body p { color: #94a89b; }
+
+        /* SUNSET */
+        .v-sunset { background: #1a0e14; border: 1px solid rgba(255,126,95,0.25); }
+        .v-sunset .preview { background: radial-gradient(circle at 30% 20%, #2a1626, #1a0e14 70%), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=900&auto=format&fit=crop') center/cover; background-blend-mode: overlay; }
+        .v-sunset .pkicker, .v-sunset .body .tag, .v-sunset .body .open { color: #ff7e5f; }
+        .v-sunset .preview h3 { color: #fde8d7; }
+        .v-sunset .preview h3 em { background: linear-gradient(90deg,#ff7e5f,#feb47b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .v-sunset .body p { color: #b89a93; }
+
+        /* INDIGO */
+        .v-indigo { background: #0d0a26; border: 1px solid rgba(255,138,61,0.25); }
+        .v-indigo .preview { background: radial-gradient(circle at 70% 30%, #1a1340, #0d0a26 70%), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=900&auto=format&fit=crop') center/cover; background-blend-mode: overlay; }
+        .v-indigo .pkicker, .v-indigo .body .tag, .v-indigo .body .open { color: #ff8a3d; }
+        .v-indigo .preview h3 { color: #ecebff; }
+        .v-indigo .preview h3 em { background: linear-gradient(90deg,#ff8a3d,#ff5d8f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .v-indigo .body p { color: #9590b8; }
+
+        /* SAFFRON */
+        .v-saffron { background: #1d211a; border: 1px solid rgba(224,168,63,0.25); }
+        .v-saffron .preview { background: linear-gradient(135deg, #14180f, #262b1f), url('https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=900&auto=format&fit=crop') center/cover; background-blend-mode: overlay; }
+        .v-saffron .pkicker, .v-saffron .body .tag, .v-saffron .body .open { color: #e0a83f; }
+        .v-saffron .preview h3 { color: #f1ead5; }
+        .v-saffron .preview h3 em { color: #e0a83f; }
+        .v-saffron .body p { color: #9aa088; }
+
+        /* PLUM */
+        .v-plum { background: #1a0d1f; border: 1px solid rgba(255,77,141,0.25); }
+        .v-plum .preview { background: linear-gradient(135deg, #1a0d1f, #2a0f2e), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=900&auto=format&fit=crop') center/cover; background-blend-mode: overlay; filter: hue-rotate(280deg); }
+        .v-plum .pkicker, .v-plum .body .tag, .v-plum .body .open { color: #ff4d8d; }
+        .v-plum .preview h3 { color: #f7e6ee; }
+        .v-plum .preview h3 em { background: linear-gradient(90deg,#ff4d8d,#ffd166); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .v-plum .body p { color: #b08aa0; }
+
+        /* HYBRID */
+        .v-hybrid { background: #1a0e14; border: 1px solid rgba(255,126,95,0.35); position: relative; }
+        .v-hybrid::before { content: 'NEW'; position: absolute; top: 16px; right: 16px; z-index: 5; background: linear-gradient(135deg,#ff7e5f,#feb47b); color: #1a0e14; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; padding: 4px 10px; border-radius: 999px; }
+        .v-hybrid .preview { background: radial-gradient(circle at 30% 20%, #2a1626, #1a0e14 70%), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=900&auto=format&fit=crop') center/cover; background-blend-mode: overlay; padding: 0; }
+        .v-hybrid .preview .mini-bento { position: absolute; inset: auto 16px 16px 16px; z-index: 2; display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; height: 50%; }
+        .v-hybrid .preview .mini-bento div { background: rgba(255,255,255,0.08); border-radius: 4px; backdrop-filter: blur(8px); }
+        .v-hybrid .preview .mini-bento .a { grid-column: span 2; grid-row: span 2; }
+        .v-hybrid .preview .mini-bento .b { background: linear-gradient(135deg,#ff7e5f,#feb47b); }
+        .v-hybrid .pkicker, .v-hybrid .body .tag, .v-hybrid .body .open { color: #ff7e5f; }
+        .v-hybrid .preview h3 { color: #fde8d7; position: relative; z-index: 3; }
+        .v-hybrid .preview h3 em { background: linear-gradient(90deg,#ff7e5f,#feb47b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .v-hybrid .body p { color: #b89a93; }
+
+        .foot { text-align: center; margin-top: 60px; color: #5a554e; font-size: 0.85rem; }
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap');
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="head">
+            <span class="kicker">Cinematic, four ways</span>
+            <h1>Same motion. <em>Eight moods.</em></h1>
+            <p>All eight share the parallax hero, sticky-scroll storytelling, custom cursor, ticker strip, and horizontal card track. Only the palette and typeface change &mdash; the &ldquo;feel&rdquo; shifts dramatically with each. First row: the original four. Second row: warmer, more colourful options for a younger audience.</p>
+            <a href="themes.html" class="back">&larr; back to all layout concepts</a>
+        </div>
+
+        <div class="grid">
+
+            <a class="card v-gold" href="theme-cinematic.html" target="_blank">
+                <div class="preview">
+                    <div class="pkicker">A couple. Twenty days. Twenty-six countries.</div>
+                    <h3>From office<br>to <em>elsewhere.</em></h3>
+                </div>
+                <div class="body">
+                    <span class="tag">Variant 01 &middot; Dark &middot; Gold</span>
+                    <h2>Gold &middot; the original</h2>
+                    <p>Near-black background, warm gold-amber accents, Instrument Serif headlines. Feels like a high-end travel magazine. Best with strong, contrasty photography.</p>
+                    <span class="open">Open preview &rarr;</span>
+                </div>
+            </a>
+
+            <a class="card v-ivory" href="theme-cinematic-ivory.html" target="_blank">
+                <div class="preview">
+                    <div class="pkicker">A couple. Twenty days. Twenty-six countries.</div>
+                    <h3>From office<br>to <em>elsewhere.</em></h3>
+                </div>
+                <div class="body">
+                    <span class="tag">Variant 02 &middot; Light &middot; Copper</span>
+                    <h2>Ivory &middot; daytime cinematic</h2>
+                    <p>Cream background, deep-navy text, terracotta-copper accents. Same scroll choreography, but daylight. Reads as warm and trustworthy &mdash; less &ldquo;luxury brand&rdquo;, more &ldquo;Sunday paper&rdquo;.</p>
+                    <span class="open">Open preview &rarr;</span>
+                </div>
+            </a>
+
+            <a class="card v-mono" href="theme-cinematic-mono.html" target="_blank">
+                <div class="preview">
+                    <div class="pkicker">A couple. Twenty days. Twenty-six countries.</div>
+                    <h3>From office<br>to <em>elsewhere.</em></h3>
+                </div>
+                <div class="body">
+                    <span class="tag">Variant 03 &middot; Mono &middot; Architectural</span>
+                    <h2>Mono &middot; pure black &amp; white</h2>
+                    <p>No accent colour at all. Light Cormorant Garamond serif, italics for emphasis instead of colour. Cold, architectural, very confident. The closest thing to a printed book.</p>
+                    <span class="open">Open preview &rarr;</span>
+                </div>
+            </a>
+
+            <a class="card v-emerald" href="theme-cinematic-emerald.html" target="_blank">
+                <div class="preview">
+                    <div class="pkicker">A couple. Twenty days. Twenty-six countries.</div>
+                    <h3>From office<br>to <em>elsewhere.</em></h3>
+                </div>
+                <div class="body">
+                    <span class="tag">Variant 04 &middot; Forest &middot; Copper</span>
+                    <h2>Emerald &middot; organic luxe</h2>
+                    <p>Deep forest-green background with copper-orange accents. Same serifs, warmer mood. Feels like rainforests, wood-panelled libraries, slow travel. Softens the &ldquo;tech-brand dark mode&rdquo; vibe.</p>
+                    <span class="open">Open preview &rarr;</span>
+                </div>
+            </a>
+
+            <a class="card v-sunset" href="theme-cinematic-sunset.html" target="_blank">
+                <div class="preview">
+                    <div class="pkicker">A couple. Twenty days. Twenty-six countries.</div>
+                    <h3>From office<br>to <em>elsewhere.</em></h3>
+                </div>
+                <div class="body">
+                    <span class="tag">Variant 05 &middot; Coral &middot; Peach &middot; Recommended</span>
+                    <h2>Sunset Coral &middot; broadest appeal</h2>
+                    <p>Plum-black background, gradient coral-to-peach headlines. Warm, romantic, Instagram-ready. Reads as &ldquo;golden hour&rdquo; &mdash; the safest crowd-pleaser for both Gen Z and millennial travel readers.</p>
+                    <span class="open">Open preview &rarr;</span>
+                </div>
+            </a>
+
+            <a class="card v-indigo" href="theme-cinematic-indigo.html" target="_blank">
+                <div class="preview">
+                    <div class="pkicker">A couple. Twenty days. Twenty-six countries.</div>
+                    <h3>From office<br>to <em>elsewhere.</em></h3>
+                </div>
+                <div class="body">
+                    <span class="tag">Variant 06 &middot; Indigo &middot; Tangerine</span>
+                    <h2>Indigo Sunrise &middot; most memorable</h2>
+                    <p>Deep indigo night-sky background, tangerine-to-pink gradient text. The most distinctive of the lot &mdash; if you want people to remember the site after one visit, this is it. Bold without being loud.</p>
+                    <span class="open">Open preview &rarr;</span>
+                </div>
+            </a>
+
+            <a class="card v-saffron" href="theme-cinematic-saffron.html" target="_blank">
+                <div class="preview">
+                    <div class="pkicker">A couple. Twenty days. Twenty-six countries.</div>
+                    <h3>From office<br>to <em>elsewhere.</em></h3>
+                </div>
+                <div class="body">
+                    <span class="tag">Variant 07 &middot; Sage &middot; Saffron</span>
+                    <h2>Saffron Sage &middot; subtle &amp; Indian</h2>
+                    <p>Muted sage-green background with warm saffron accents. The most subtle of the colourful set &mdash; cottagecore meets slow travel. Quietly Indian without being explicit about it.</p>
+                    <span class="open">Open preview &rarr;</span>
+                </div>
+            </a>
+
+            <a class="card v-plum" href="theme-cinematic-plum.html" target="_blank">
+                <div class="preview">
+                    <div class="pkicker">A couple. Twenty days. Twenty-six countries.</div>
+                    <h3>From office<br>to <em>elsewhere.</em></h3>
+                </div>
+                <div class="body">
+                    <span class="tag">Variant 08 &middot; Aubergine &middot; Hot Pink</span>
+                    <h2>Plum Disco &middot; boldest</h2>
+                    <p>Aubergine background, hot-pink-to-gold gradient headlines, hue-shifted hero imagery. The loudest of the eight &mdash; skews young, fashion-forward, party-night. Best if the brand wants to feel daring.</p>
+                    <span class="open">Open preview &rarr;</span>
+                </div>
+            </a>
+
+            <a class="card v-hybrid" href="theme-cinematic-hybrid.html" target="_blank">
+                <div class="preview">
+                    <div class="pkicker">Sunset Coral hero &middot; Bento destinations</div>
+                    <h3>Cinematic <em>meets</em> bento.</h3>
+                    <div class="mini-bento">
+                        <div class="a"></div><div></div><div class="b"></div>
+                        <div></div><div></div>
+                    </div>
+                </div>
+                <div class="body">
+                    <span class="tag">Variant 09 &middot; Hybrid &middot; Gen Z + Millennial</span>
+                    <h2>Sunset Hybrid &middot; best of both</h2>
+                    <p>Sunset Coral cinematic hero and sticky-scroll storytelling for the millennial reader &mdash; then a Gen-Z-friendly asymmetric bento grid of destinations with stat tiles and a gradient CTA. One site, two audiences.</p>
+                    <span class="open">Open preview &rarr;</span>
+                </div>
+            </a>
+
+        </div>
+
+        <p class="foot">Open each variant in a new tab, scroll the hero, then tell me the winner &mdash; I&rsquo;ll roll it across every page on the site. My pick for crowd-pleaser: <strong>Sunset Coral</strong>. For most memorable: <strong>Indigo Sunrise</strong>.</p>
+    </div>
+</body>
+</html>

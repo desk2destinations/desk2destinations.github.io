@@ -1,0 +1,36 @@
+/* Theme: Mediterranean Bright
+   Terracotta + cobalt blue + crisp white. Sunnier, more vibrant. */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+:root,
+:root[data-theme="dark"] {
+    --font-heading: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --bg-primary: #ffffff;
+    --bg-secondary: #f4ecdf;
+    --bg-card: #ffffff;
+    --bg-glass: rgba(255, 255, 255, 0.88);
+
+    --text-primary: #1a2540;
+    --text-secondary: #4a5570;
+    --text-muted: #8a93a8;
+
+    --accent-forest: #16407a;
+    --accent-forest-hover: #1f5499;
+    --accent-terracotta: #e25822;
+    --accent-terracotta-hover: #f06a35;
+    --accent-gold: #f4b942;
+    --accent-gold-gradient: linear-gradient(135deg, #f4b942, #e25822);
+
+    --border-color: rgba(22, 64, 122, 0.12);
+    --border-glass: rgba(22, 64, 122, 0.06);
+    --shadow-sm: 0 4px 12px rgba(22,64,122,0.06);
+    --shadow-md: 0 14px 34px rgba(22,64,122,0.10);
+    --shadow-lg: 0 24px 60px rgba(22,64,122,0.16);
+}
+
+h1 span { color: var(--accent-terracotta) !important; }
+.btn-primary { background: var(--accent-terracotta) !important; }
+.badge-terracotta { background: var(--accent-forest) !important; color: #fff !important; }
+.dest-tag { background: var(--accent-terracotta) !important; color: #fff !important; }
