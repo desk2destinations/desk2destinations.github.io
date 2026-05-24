@@ -1,0 +1,36 @@
+/* Theme: Japanese Minimal (Monocle / Kinfolk)
+   Off-white, ink-grey neutral, single warm beige accent. Quiet and confident. */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+:root,
+:root[data-theme="dark"] {
+    --font-heading: 'Manrope', system-ui, sans-serif;
+    --font-body: 'Manrope', system-ui, sans-serif;
+
+    --bg-primary: #f8f6f1;
+    --bg-secondary: #ede9df;
+    --bg-card: #ffffff;
+    --bg-glass: rgba(248, 246, 241, 0.86);
+
+    --text-primary: #1f1f1d;
+    --text-secondary: #5a5852;
+    --text-muted: #9a9690;
+
+    --accent-forest: #2d2d2a;
+    --accent-forest-hover: #1f1f1d;
+    --accent-terracotta: #b48a5c;
+    --accent-terracotta-hover: #c89a6c;
+    --accent-gold: #d4b483;
+    --accent-gold-gradient: linear-gradient(135deg, #d4b483, #b48a5c);
+
+    --border-color: rgba(31, 31, 29, 0.10);
+    --border-glass: rgba(31, 31, 29, 0.05);
+    --shadow-sm: none;
+    --shadow-md: 0 1px 0 rgba(31,31,29,0.06);
+    --shadow-lg: 0 8px 24px rgba(31,31,29,0.06);
+}
+
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.02em; }
+.btn { border-radius: 999px !important; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.dest-card, .book-row, .takeaway { box-shadow: none !important; border: 1px solid var(--border-color) !important; }
+.badge, .count-badge, .dest-tag { background: transparent !important; border: 1px solid var(--text-primary) !important; color: var(--text-primary) !important; }

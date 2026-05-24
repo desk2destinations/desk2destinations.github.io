@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Concept: Editorial Mosaic | Desk2Destinations</title>
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f6f3ee;
+            --bg-2: #ebe5d9;
+            --paper: #ffffff;
+            --ink: #14110d;
+            --ink-2: #5a544a;
+            --rule: rgba(20,17,13,0.18);
+            --accent: #c43a1e;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAV */
+        .nav { position: sticky; top: 0; z-index: 100; background: rgba(246,243,238,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+        .nav strong { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 32px; font-size: 0.88rem; }
+        .nav-links a { position: relative; padding: 4px 0; }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; height: 1px; width: 0; background: var(--ink); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* HERO */
+        .hero { padding: 80px 0 40px; border-bottom: 1px solid var(--rule); }
+        .hero-meta { display: flex; justify-content: space-between; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--ink-2); margin-bottom: 28px; }
+        .hero-meta span:last-child { color: var(--accent); }
+        .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 8vw, 7.5rem); font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; max-width: 11ch; }
+        .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+        .hero-foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-top: 60px; align-items: end; }
+        .hero-foot .lede { font-family: 'Fraunces', serif; font-size: 1.5rem; line-height: 1.35; font-weight: 400; max-width: 30ch; }
+        .hero-foot .lede::first-letter { font-size: 2.6rem; float: left; font-weight: 600; padding-right: 8px; line-height: 0.9; }
+        .hero-foot .col h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-2); margin-bottom: 10px; }
+        .hero-foot .col p { font-size: 0.95rem; line-height: 1.55; }
+        @media (max-width: 800px) { .hero-foot { grid-template-columns: 1fr; } }
+
+        /* FEATURE MOSAIC */
+        .mosaic { padding: 80px 0; }
+        .mosaic-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 50px; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
+        .mosaic-head h2 { font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; }
+        .mosaic-head .issue { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-2); }
+        .mosaic-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 50px; }
+        @media (max-width: 900px) { .mosaic-grid { grid-template-columns: 1fr; } }
+
+        .feature { position: relative; cursor: pointer; }
+        .feature .img-wrap { overflow: hidden; aspect-ratio: 4/3; margin-bottom: 22px; }
+        .feature .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.16,1,0.3,1); }
+        .feature:hover .img-wrap img { transform: scale(1.06); }
+        .feature .kicker { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 10px; display: block; font-weight: 600; }
+        .feature h3 { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 14px; }
+        .feature p { color: var(--ink-2); line-height: 1.6; max-width: 50ch; }
+        .feature .byline { margin-top: 18px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-2); }
+        .feature .byline em { font-style: normal; color: var(--ink); font-weight: 600; }
+
+        .stack { display: flex; flex-direction: column; gap: 36px; }
+        .article { display: grid; grid-template-columns: 110px 1fr; gap: 22px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); cursor: pointer; }
+        .article:last-child { border-bottom: none; }
+        .article .img-wrap { aspect-ratio: 1; overflow: hidden; }
+        .article img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+        .article:hover img { transform: scale(1.1); }
+        .article .num { font-family: 'Fraunces', serif; font-size: 2.6rem; line-height: 1; color: var(--accent); display: block; margin-bottom: 8px; font-weight: 400; font-style: italic; }
+        .article h4 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 6px; }
+        .article p { color: var(--ink-2); font-size: 0.88rem; line-height: 1.5; }
+
+        /* PULL QUOTE */
+        .pullquote { padding: 100px 0; background: var(--ink); color: var(--bg); }
+        .pullquote blockquote { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; max-width: 18ch; margin: 0 auto; text-align: center; }
+        .pullquote blockquote em { font-style: italic; color: #d4a878; }
+        .pullquote cite { display: block; margin-top: 30px; text-align: center; font-style: normal; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(246,243,238,0.6); }
+
+        /* COUNTRIES STRIP */
+        .strip { padding: 70px 0; border-bottom: 1px solid var(--rule); }
+        .strip h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 500; margin-bottom: 30px; }
+        .strip-list { display: flex; flex-wrap: wrap; gap: 12px 0; font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 400; line-height: 1.1; }
+        .strip-list a { padding: 0 18px; border-right: 1px solid var(--rule); transition: color 0.25s, font-style 0.25s; }
+        .strip-list a:last-child { border-right: none; }
+        .strip-list a:hover { color: var(--accent); font-style: italic; }
+
+        /* REVEAL */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.in { opacity: 1; transform: translateY(0); }
+
+        footer { padding: 50px 0; text-align: center; color: var(--ink-2); font-size: 0.85rem; }
+        footer a { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container nav-inner">
+        <strong>Desk2Destinations</strong>
+        <div class="nav-links"><a>Itineraries</a><a>Books</a><a>About</a><a>Subscribe</a></div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container reveal">
+        <div class="hero-meta"><span>Issue No. 14 &middot; May 2026</span><span>The Couple&rsquo;s Travel Quarterly</span><span>&euro; Free online</span></div>
+        <h1>From office <em>blues</em> to worldly <em>views.</em></h1>
+        <div class="hero-foot">
+            <p class="lede">We are a corporate couple balancing demanding full-time jobs with part-time travel &mdash; and we write the kind of itineraries we wished existed when we first started planning ours.</p>
+            <div class="col"><h4>In this issue</h4><p>Barcelona&rsquo;s gothic alleys, Tokyo&rsquo;s late-night bookshops, Bavarian castle country and a 13-day South India road trip with our parents.</p></div>
+            <div class="col"><h4>From the editors</h4><p>20 days of leave a year. 26 countries crossed off. The math, the spreadsheets, and what we got wrong &mdash; written without the influencer gloss.</p></div>
+        </div>
+    </div>
+</header>
+
+<section class="mosaic">
+    <div class="container">
+        <div class="mosaic-head reveal">
+            <h2>Featured this month.</h2>
+            <span class="issue">Volume IV &middot; Stories 01 &mdash; 05</span>
+        </div>
+        <div class="mosaic-grid">
+            <article class="feature reveal">
+                <div class="img-wrap"><img src="https://desk2destinations.com/wp-content/uploads/2025/07/img_5356_original.jpg" alt="Barcelona"></div>
+                <span class="kicker">Cover Story &middot; Spain</span>
+                <h3>Barcelona, where football, history and chocolate collide.</h3>
+                <p>Twelve days through the Gothic Quarter, four football matches, and one accidentally life-changing chocolate shop in El Born. A long read on travelling without the bucket list.</p>
+                <div class="byline">By <em>The Travelling Couple</em> &middot; 12 min read &middot; March 2024</div>
+            </article>
+
+            <div class="stack reveal">
+                <article class="article">
+                    <div class="img-wrap"><img src="https://desk2destinations.com/wp-content/uploads/2026/03/img_5455-1.jpg" alt="Madrid"></div>
+                    <div><span class="num">02</span><h4>Madrid at sunset, Almudena to Plaza Mayor.</h4><p>A walking guide to Madrid&rsquo;s golden hour, with a detour through Money Heist locations.</p></div>
+                </article>
+                <article class="article">
+                    <div class="img-wrap"><img src="https://desk2destinations.com/wp-content/uploads/2026/03/img_6307-2.jpg" alt="Seville"></div>
+                    <div><span class="num">03</span><h4>Seville&rsquo;s orange blossoms &amp; the soul of Flamenco.</h4><p>One evening of live Flamenco that ruined every other performance for us.</p></div>
+                </article>
+                <article class="article">
+                    <div class="img-wrap"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=400&auto=format&fit=crop" alt="Japan"></div>
+                    <div><span class="num">04</span><h4>Tokyo to Kyoto by way of an overnight bus.</h4><p>The cheapest, strangest, and most surprisingly comfortable transit decision of our trip.</p></div>
+                </article>
+                <article class="article">
+                    <div class="img-wrap"><img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=400&auto=format&fit=crop" alt="Germany"></div>
+                    <div><span class="num">05</span><h4>Bavaria&rsquo;s fairytale castles, without the queues.</h4><p>How to do Neuschwanstein in spring without losing your morning to a ticket counter.</p></div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pullquote reveal">
+    <div class="container">
+        <blockquote>&ldquo;Travel isn&rsquo;t about quitting your job. It&rsquo;s about <em>planning the small windows</em> better than anyone else.&rdquo;</blockquote>
+        <cite>&mdash; From our manifesto, Issue No. 1</cite>
+    </div>
+</section>
+
+<section class="strip reveal">
+    <div class="container">
+        <h3>Where we&rsquo;ve been.</h3>
+        <nav class="strip-list">
+            <a>Japan</a><a>Spain</a><a>Germany</a><a>France</a><a>Italy</a><a>Czech Republic</a><a>Austria</a><a>Belgium</a><a>Netherlands</a><a>Denmark</a><a>Sweden</a><a>Norway</a><a>New Zealand</a><a>India</a><a>Singapore</a><a>Thailand</a><a>UAE</a>
+        </nav>
+    </div>
+</section>
+
+<footer>
+    Layout concept &mdash; <strong>Editorial Mosaic</strong> &middot; <a href="themes.html">&larr; back to all concepts</a>
+</footer>
+
+<script>
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
