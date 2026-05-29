@@ -16,6 +16,7 @@
     <meta name="twitter:title" content="Osaka: Shoe Heaven, Osaka Castle & Dotonbori Lights | Desk2Destinations">
     <meta name="twitter:description" content="Two days in Osaka — Rinku Premium Outlet shoe spree, Rikuro's cheesecake, Osaka Castle, Don Quijote, Mercy Vegan Cafe and the glowing chaos of Dotonbori.">
     <meta name="twitter:image" content="https://desk2destinations.com/assets/og-image.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/blog-post.css">
@@ -129,6 +130,12 @@
 
             <p>Tomorrow's a big day — bullet train + <strong>Hiroshima</strong>. Time to pack. After all this shopping, the black suitcase had to come out from inside the red one. Final count: <strong>one large, one medium, one small suitcase, and one fully-packed backpack</strong>. We've pre-booked the <strong>extra-space seats on the Shinkansen</strong> specifically to handle this much luggage. Early morning train. Sleep got delayed because of the packing, but that's fine.</p>
 
+            <h2 id="trip-map">Where It All Happened</h2>
+
+            <p>Two days, one city, a lot of walking. Pan the map, click a pin — each one is a moment above.</p>
+
+            <div id="osaka-map" style="height:420px;width:100%;border-radius:14px;margin:18px 0 32px;box-shadow:0 8px 28px rgba(0,0,0,0.10);z-index:0;"></div>
+
             <div class="must-visit-box">
                 <h3>Must-Do in Osaka</h3>
                 <ul class="must-visit-list">
@@ -154,6 +161,7 @@
                         <li><a href="#day-2-castle-donki-dotonbori">Day 2 · Osaka Castle, Don Quijote &amp; Dotonbori</a></li>
                         <li><a href="#garner-hotel-tip">Tip · Garner Hotel has five branches</a></li>
                         <li><a href="#packing-for-the-shinkansen">Packing for the Shinkansen</a></li>
+                        <li><a href="#trip-map">Where It All Happened</a></li>
                     </ul>
                 </div>
 
@@ -286,6 +294,30 @@
                 <a href="disclaimer.html">Disclaimer</a>
             </div></div>
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+    (function() {
+      var el = document.getElementById('osaka-map');
+      if (!el || typeof L === 'undefined') return;
+      var map = L.map('osaka-map', { scrollWheelZoom: false }).setView([34.6750, 135.5020], 11);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        subdomains: 'abcd',
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+      }).addTo(map);
+      var pins = [
+        { lat: 34.4099, lng: 135.2998, title: 'Rinku Premium Outlet', note: '250 shops &middot; Nike + Sketchers haul &middot; Day 1' },
+        { lat: 34.7029, lng: 135.4970, title: "Rikuro's (Daimaru, Umeda)", note: 'Jiggly cheesecake &middot; reached at 7:45 p.m.' },
+        { lat: 34.6873, lng: 135.5262, title: 'Osaka Castle', note: 'Sunday picnics in the gardens &middot; Day 2' },
+        { lat: 34.6687, lng: 135.5012, title: 'Don Quijote Dotonbori', note: '3.5 hours, two bags, every KitKat flavour' },
+        { lat: 34.6720, lng: 135.4990, title: 'Mercy Vegan Cafe', note: 'Run by a mother &amp; daughter &middot; pre-Dotonbori dinner' },
+        { lat: 34.6687, lng: 135.5023, title: 'Dotonbori &amp; Glico Running Man', note: 'Neon in the rain &middot; tour boats on the canal' }
+      ];
+      pins.forEach(function(p) {
+        L.marker([p.lat, p.lng]).addTo(map).bindPopup('<strong>' + p.title + '</strong><br>' + p.note);
+      });
+    })();
+    </script>
     <script src="js/app.js"></script>
     <script src="search-index.js"></script>
     <script src="js/search.js"></script>
