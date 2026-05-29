@@ -330,24 +330,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const isVisible = navLinks.style.display === 'flex';
             if (isVisible) {
                 navLinks.style.display = 'none';
+                document.body.classList.remove('nav-open');
                 navToggle.innerHTML = '&#9776;'; // Hamburger
             } else {
                 navLinks.style.display = 'flex';
                 navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '70px';
                 navLinks.style.left = '0';
+                navLinks.style.right = '0';
                 navLinks.style.width = '100%';
-                navLinks.style.maxHeight = 'calc(100vh - 70px)';
+                navLinks.style.maxHeight = 'calc(100dvh - 70px)';
                 navLinks.style.overflowY = 'auto';
                 navLinks.style.webkitOverflowScrolling = 'touch';
                 navLinks.style.overscrollBehavior = 'contain';
+                navLinks.style.touchAction = 'pan-y';
                 navLinks.style.background = 'var(--bg-glass)';
                 navLinks.style.backdropFilter = 'blur(16px)';
                 navLinks.style.padding = '24px';
                 navLinks.style.borderBottom = '1px solid var(--border-color)';
                 navLinks.style.boxShadow = 'var(--shadow-md)';
                 navLinks.style.gap = '20px';
+                navLinks.style.zIndex = '999';
+                document.body.classList.add('nav-open');
                 navToggle.innerHTML = '&times;'; // Cross
             }
         });
