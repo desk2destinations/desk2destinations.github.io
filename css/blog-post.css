@@ -74,6 +74,14 @@
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
 }
+.blog-content h2 .day-subhead {
+    display: block;
+    font-size: 0.65em;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+    margin-top: 6px;
+}
 .blog-content h3 {
     font-family: var(--font-display);
     color: var(--text-primary);
