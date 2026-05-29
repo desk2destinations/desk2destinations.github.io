@@ -16,6 +16,7 @@
     <meta name="twitter:title" content="Kyoto: Matcha, Temples &amp; Our Fifth Anniversary | Desk2Destinations">
     <meta name="twitter:description" content="Our Kyoto diary — Uji matcha town, Kiyomizudera, Fushimi Inari hike, our anniversary at the Golden Temple, and the best ramen we've ever eaten at Kyoto Engine.">
     <meta name="twitter:image" content="https://desk2destinations.com/assets/og-image.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/blog-post.css">
@@ -30,7 +31,7 @@
                 <span>•</span>
                 <span>April 2026</span>
                 <span>•</span>
-                <span>14 min read</span>
+                <span>16 min read</span>
             </div>
             <h1 class="blog-title-main">Kyoto: Matcha, Temples, Rain &amp; Our Fifth Anniversary Together</h1>
         </div>
@@ -39,76 +40,210 @@
     <div class="container blog-container">
         <main class="blog-content">
 
-            <p>We rolled into Kyoto at 5:30am with the morning still chilly around us. The metro carried us to <strong>Kiori Exec</strong> by 6:30am — far too early for check-in, but the staff promised to get us a room as soon as one was ready. From here on, no more shared rooms, no more shared washrooms. The hostel chapter of the trip was over. The plan for the day was <strong>Uji</strong>, the famous matcha town, but nothing opened before 9:30am, and the temples — beautiful as they would have been — didn't have our enthusiasm yet. We'd just done Senso-ji in Tokyo and our temple cup was full. I sketched out a Uji map, then promptly fell asleep in the waiting area.</p>
+            <p>There are some cities you visit and some cities you slow down for. Kyoto, we learned over three slow, rain-soft, matcha-soaked days, very firmly belongs to the second list. This is the diary of our fifth anniversary, a lost bus pass at the Golden Temple, two near-religious bowls of vegetarian chilli ramen, and a tiny matcha town that quietly became one of our favourite memories from Japan.</p>
 
-            <p>Our room came through at 10am. We were sleepy enough to crash again, then finally got ready and reached <strong>Uji at 4:30pm</strong>. Yes, late — Uji is nearly an hour from Kyoto Station. We'd starred countless matcha shops on the map but only got to two; most close by 5:30 or 6pm. Still, that was enough to fall in. We tried our first proper <strong>matcha parfait</strong>, <strong>matcha tea</strong>, <strong>matcha candies</strong>, and stocked up for home — tea, latte, candies, even <strong>matcha noodles</strong>. Matcha is one of those things that grows on you with every sip, every spoonful.</p>
+            <h2 id="day-1-uji">Day 1: 22nd April<br><span class="day-subhead">Arrival &amp; the Uji Matcha Trip</span></h2>
+
+            <p>Kyoto Station at <strong>5:30 a.m.</strong> has the cool, unhurried hush of a city that has been awake for centuries. We dragged our cases and one over-loved backpack onto the metro and were ringing the bell at <strong>Kiori Exec</strong> by 6:30 a.m. — the kind of timing that earns a polite, faintly amused bow from a hotel receptionist. Check-in wasn't until much later, but the staff promised to flag us the moment a room came free.</p>
+
+            <p>For us, walking into that lobby felt like turning a page. The shared-room, shared-bathroom, hostel-budget chapter of Japan was officially behind us. From here on: our own door, our own kettle, our own quiet.</p>
+
+            <p>The day's plan was simple — <strong>Uji</strong>, the matcha town nearly an hour from Kyoto. But nothing opened before 9:30 a.m., and our temple-tank was still full from Senso-ji in Tokyo. So I did the one thing I'm consistently brilliant at when tired: I sketched out a Uji walking map on my phone, then promptly fell asleep on a lobby sofa.</p>
+
+            <div class="must-visit-box" style="background:linear-gradient(135deg, rgba(255,126,95,0.08), rgba(254,180,123,0.05)); border-left:4px solid var(--accent-terracotta);">
+                <h3 style="margin-top:0;">☕ Kyoto Hotel Tip — Kiori Exec</h3>
+                <p style="margin:0; font-size:0.98rem;">Arriving at sunrise? Kiori Exec's lobby is comfortable enough to nap in, the staff are unusually kind to early arrivals, and they actually <em>do</em> bump you into a room early if one's clean. Worth the small premium over a hostel after a long Shinkansen day.</p>
+            </div>
+
+            <p>The room came through at 10 a.m. We crashed again, properly this time. By the time we surfaced and made it to Uji, it was <strong>4:30 p.m.</strong> — a late, late start. We'd starred a long list of matcha shops on Google Maps and got to exactly <em>two</em>; most close at 5:30 or 6 p.m. Two was enough to fall completely in love.</p>
+
+            <p>Our first proper <strong>matcha parfait</strong> — thick whisked matcha layered with adzuki beans, soft jelly, soft-serve, and one ceremoniously placed dango. <strong>Matcha tea</strong> served the right way: bitter, grassy, alive. <strong>Matcha candies</strong> that somehow taste like the leaf itself. We stocked up for home — tea, latte powder, candies, even <strong>matcha soba noodles</strong>. Matcha is one of those flavours that grows on you with every sip, every spoonful, until ordinary green tea feels like a faint photocopy.</p>
 
             <div class="wp-block-image">
                 <figure>
-                    <img src="photos/Japan/_thumbs/IMG_3045.jpg" alt="Uji riverside / matcha parfait close-up" loading="lazy" style="width:100%;border-radius:12px;">
-                    <figcaption>Uji at sunset, after the shops have closed and the lake takes over. Peaceful in a way the daytime never is.</figcaption>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3278.jpg" alt="A bowl of whisked matcha in Uji" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>First sip of proper Uji matcha — bitter, grassy, alive. The flavour every cup back home will be measured against.</figcaption>
                 </figure>
             </div>
 
-            <p>With the shops shut, we wandered — the lake, <strong>Uji Shrine</strong>, a quiet supermarket, the famous statues from the <em>Tales of Genji</em>. Uji at sunset is its own little reward. By 8pm we were back in Kyoto, and at <strong>Vegan Izakaya</strong> we were told they were fully booked — until a small request earned us a table. Their <strong>gyoza</strong> turned out to be the best we'd eat in Japan. We tried <strong>sake</strong>, the legs gave up, and we still walked back to the hotel anyway. Before sleep, a small bit of admin: Suica was costing us 320 yen a ride, so for tomorrow's big day I'd switch us to a <strong>day bus pass</strong> — cheaper at four rides or more. Map sorted. Lights out.</p>
+            <p>With the shutters down, we did what Uji rewards most: we wandered. The river. <strong>Uji Shrine</strong> in its early-evening quiet. A neighbourhood supermarket that doubled as a small adventure. The bronze statues from <em>The Tale of Genji</em>, standing where one of the world's oldest novels was set a thousand years ago.</p>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3333.jpg" alt="Posing with the Murasaki Shikibu statue at Uji bridge" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>With Murasaki Shikibu by the Uji-bashi — the woman who wrote <em>The Tale of Genji</em> a thousand years ago, on the very river behind us.</figcaption>
+                </figure>
+            </div>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3485.jpg" alt="Uji Shrine at dusk with stone lanterns" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>Uji Shrine, just before closing. The lanterns come on, the day-trippers thin out, and the place finally exhales.</figcaption>
+                </figure>
+            </div>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3431.jpg" alt="The two of us on the Uji bridge at dusk" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>Last light on the Uji river. Belly full of matcha, train ride back to Kyoto already calling.</figcaption>
+                </figure>
+            </div>
+
+            <p>By 8 p.m. we were back in Kyoto and inside <strong>Vegan Izakaya</strong>, where the staff first told us — kindly, regretfully — that they were fully booked. One soft <em>please</em> from us, a soft pause from them, and a small table appeared.</p>
+
+            <p>Their <strong>gyoza</strong> turned out to be the best of our entire Japan trip — thin-skinned, crisp-bottomed, herby and juicy in the middle. The <strong>sake</strong> landed on legs that had nothing left in them. We walked back to the hotel anyway, the way you do when you're happy and a little drunk and the city is too pretty to call a cab.</p>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3255-COLLAGE.jpg" alt="Matcha drink, sake and gyoza in Uji and Kyoto" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>Day one, on a plate: an Uji matcha drink in the afternoon, sake and the best gyoza of the whole trip by night.</figcaption>
+                </figure>
+            </div>
+
+            <p>Before sleep, a small piece of admin. Suica was costing us <strong>320 yen per ride</strong>, and tomorrow's big day would have at least four bus hops on it. I switched us to a <strong>Day Bus Pass</strong> — break-even at four rides, profit at five. Map sorted. Lights out.</p>
 
             <div class="travel-pullquote">
-                <p>Five years… half a decade with Golu. It feels new, it still feels fresh, and it still is a very happy place. He makes it. No matter how the world perceives me, I know he has seen the worst in me and still chooses to stay. That is where I know I am lucky and grateful.</p>
+                <p>Five years… half a decade with Golu. It still feels new, it still feels fresh, and it still is a very happy place. He makes it.</p>
             </div>
 
-            <h2 id="day-1-anniversary">Day 1: 23rd April<br><span class="day-subhead">Our Anniversary</span></h2>
+            <h2 id="day-2-anniversary">Day 2: 23rd April<br><span class="day-subhead">Our Anniversary, in the Rain</span></h2>
 
-            <p><strong>Our anniversary. Five years.</strong> I genuinely cannot believe half a decade has passed with Golu. It feels new, it still feels fresh, and it still is a very happy place. He makes it. No matter how the world perceives me, I know he has seen the worst in me and he still chooses to stay. That's where I know I am lucky — that the universe lets him belong to me. People say you get used to each other, that the spark fades — but no, with him, he still irritates me, I'm still not habitual of his discipline and his cleanliness 😛. He is literally the ground to my live craziness. We've been to many countries and hopefully life will be kind enough to keep this going. We've had our highs and our blunders along the way, but as long as we're together, I have the energy to make any of it right.</p>
+            <p><strong>Five years.</strong> I still can't believe half a decade has passed with Golu. It feels new, it still feels fresh, and it is — quietly, daily — a very happy place. He makes it.</p>
 
-            <p>We got into our new clothes, picked up our transport tickets. The weather did its breezy Kyoto thing and then started drizzling exactly when we stepped out. Two umbrellas borrowed from the hotel saved the entire day — it rained <em>hard</em>.</p>
+            <p>People will tell you the spark fades, that you grow used to each other. I disagree. He still irritates me. I am still completely incapable of his cleanliness and his discipline, and he is somehow the steady ground to my live-wire chaos. We've been to many countries together, made highs and blunders along the way; as long as we're together, I have the energy to make any of it right. No matter how the world chooses to see me, he has seen the worst of me and still chooses to stay. That is luck, and I do not take it lightly.</p>
 
-            <p>First stop was the famous <strong>Kiyomizudera</strong> and the market that fans out below it. The temples and shrines in Japan are awe-inspiring in a quieter, more orderly way than the ones we grew up around in India. After the temple, we walked the two iconic streets, <strong>Sannenzaka and Ninenzaka</strong>, tried local sweets, ate apple pie. The rain pushed us into a <strong>Starbucks</strong> — and even Starbucks is different here, with Japanese-style floor seating. We sat for a while, drank coffee, planned the next move. <strong>Kinkakuji, the Golden Temple</strong>, won the vote.</p>
+            <p>We pulled on the new clothes we'd been saving for the day and picked up our transport tickets. The famous Kyoto breeze did a polite warm-up — and the moment we stepped outside, the sky opened. Two hotel-borrowed umbrellas held the entire day together; it rained <em>hard</em>.</p>
+
+            <p>First stop: <strong>Kiyomizu-dera</strong>, perched on its wooden stilts over a hillside of cedar and maple. The Japanese way of building a temple is so different from what we grew up around in India — quieter, more orderly, almost shy in its grandeur. Below the temple, the two iconic streets — <strong>Sannenzaka and Ninenzaka</strong> — twist downhill in old wood and stone. We tried local sweets, ate a warm apple pie, ducked into a <strong>Starbucks</strong> (yes — and even Starbucks here is different, with low Japanese-style floor seating). Coffees down, we plotted the next move. <strong>Kinkaku-ji</strong>, the Golden Temple, won the vote.</p>
 
             <div class="wp-block-image">
                 <figure>
-                    <img src="photos/Japan/_thumbs/IMG_3046.jpg" alt="Kinkakuji reflected on the pond" loading="lazy" style="width:100%;border-radius:12px;">
-                    <figcaption>The Golden Temple in the rain. Somehow the wet light makes it look even more unreal.</figcaption>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3700.jpg" alt="Dragon water fountain at Kiyomizu-dera" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>The dragon fountain at Kiyomizu-dera, water beading off its bronze scales — the rain only adds to the drama.</figcaption>
                 </figure>
             </div>
 
-            <p>Once inside Kinkakuji I realised I'd <strong>lost my day pass</strong>. You can't go back once you're in, but a guard was kind enough to check anyway. Nothing turned up. I felt awful. And then Harshit's positivity stepped in — three bus rides already, fine, we'd be fine. Even now, writing this, it still nags at me a little; but I think it's okay as long as we're together 😛.</p>
-
-            <p>The covered markets in Kyoto are an underrated travel hack. <strong>Rain doesn't touch you</strong>; you can stroll, try things, drift. We shopped souvenirs, did a full sweep of <strong>3 Coins</strong> — hairbrush, foldable chair, the works. Then a bookstore inside a mall, two whole floors of books. The reading culture in Japan is something else, the love for their own language even more so: across two floors, one shelf carried English translations. Every time I walk into a bookstore I feel quietly small — there's just so much left to read.</p>
-
-            <p>Rain ruled out the Fushimi Inari plan. We circled back to the market, and that's when I spotted an Indian restaurant. On a rainy day, your heart wants comfort food. <strong>Delhi Restaurant in Kyoto</strong> — <strong>chole bhature</strong>, <strong>onion parantha</strong>, run by a Dehradun-wala for 20 years. On breezy days like this you walk on the warmth of the love your partner gives you. I would not have planned this anniversary any differently than to see the satisfaction on Harshit's face after a plate of Indian food. I have a thousand things racing through my mind; he's calm and sweet, and even on crazy journeys his comfort still lives in Indian food at home. So I feel quietly lucky to come from a populated ethnicity — his comfort, I can find for him almost anywhere in the world 😀.</p>
-
-            <h2 id="day-2-fushimi-inari">Day 2: 24th April<br><span class="day-subhead">The Fushimi Inari Day</span></h2>
-
-            <p>The famous <strong>Fushimi Inari</strong> day, and our last in Kyoto. We've been slow-paced this whole trip and today's wake-up was no exception: we started around noon. Brunch was at <strong>Ain Soph Kyoto</strong> — we'd already loved Ain Soph Ginza in Tokyo, and this one held the line. Then over to <strong>The Macha House</strong> for a matcha parfait. Wow. Simply wow. We added the seasonal <strong>matcha strawberry sakura latte</strong> and that, too, was outstanding.</p>
-
-            <p>Heavy brunch behind us, Golu was set on the Fushimi Inari hike. After much back-and-forth we decided not to do the traditional kimono — I'd originally planned it for our anniversary, but the rain killed that, and now we'd rather spend the money on another matcha parfait 😛. We reached <strong>Fushimi Inari</strong> around 1:15pm and started up. Walking through those endless <strong>Torii gates</strong> hits differently than anything you can describe — you don't have to read the kanji on each one for the place to get under your skin. We climbed to a viewpoint where the city opens up below, and Harshit got mildly annoyed by my speed on the way down. He was back to normal by the time we hit the bottom. More photos, more watching people pray and tie wishes.</p>
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3742.jpg" alt="Sannenzaka street with Yasaka pagoda and umbrellas" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>Sannenzaka in the rain — Yasaka Pagoda in the distance, a slow procession of clear umbrellas in the foreground.</figcaption>
+                </figure>
+            </div>
 
             <div class="wp-block-image">
                 <figure>
-                    <img src="photos/Japan/_thumbs/IMG_3047.jpg" alt="Inside the Fushimi Inari Torii tunnel" loading="lazy" style="width:100%;border-radius:12px;">
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3749.jpg" alt="A warm apple pie eaten on the Sannenzaka walk" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>One warm apple pie split between us on the slope. The rain made it taste better; it always does.</figcaption>
+                </figure>
+            </div>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3754.jpg" alt="Japanese-style floor seating inside Starbucks Kyoto" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>Even Starbucks in Kyoto is different — low tables, floor cushions, paper screens. We sat there longer than we'd planned to.</figcaption>
+                </figure>
+            </div>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3780.jpg" alt="The Golden Temple reflected in its pond, in soft rain" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>Kinkaku-ji in the rain. Somehow the wet light makes it look even more unreal — the gold goes liquid, and the pond doubles it perfectly.</figcaption>
+                </figure>
+            </div>
+
+            <p>I was lost in the gold for a full minute before I realised I'd <strong>lost my day bus pass</strong>. You can't go back out through the entrance at Kinkaku-ji once you're in, but a kind guard checked anyway. Nothing. I felt awful. And then Harshit's classic patient positivity stepped in — we'd already gotten three rides out of it, we were fine. Even writing this now, it still nags at me a little. But it is okay, as long as we're together 😛.</p>
+
+            <div class="must-visit-box" style="background:linear-gradient(135deg, rgba(46,125,50,0.06), rgba(254,180,123,0.05)); border-left:4px solid var(--accent-forest);">
+                <h3 style="margin-top:0;">☔ Kyoto in the Rain — Our Cheat Sheet</h3>
+                <ul style="margin:0; padding-left:18px; font-size:0.98rem; line-height:1.7;">
+                    <li><strong>Borrow umbrellas from your hotel</strong> — almost every Kyoto hotel keeps a stand by the door.</li>
+                    <li><strong>Covered markets are everything.</strong> Nishiki, Shinkyogoku, Teramachi — hours of strolling without a drop on you.</li>
+                    <li><strong>Temples are better in the rain.</strong> Fewer crowds, softer light, glossier roofs. Kinkaku-ji especially.</li>
+                    <li><strong>Skip the kimono day if it's raining hard</strong> — they pull beautifully, but not in puddles.</li>
+                </ul>
+            </div>
+
+            <p>Kyoto's covered markets are an underrated travel hack. The rain literally doesn't touch you; you drift from shop to shop for hours. We did a full sweep of <strong>3 Coins</strong> — hairbrush, foldable chair, the works — and then a two-floor bookstore inside a mall that quietly knocked the wind out of me. The reading culture in Japan is real; the love for their own language even more so. Across both floors, exactly one shelf held English translations. Every time I walk into a bookstore I feel quietly small — there is just so much left to read.</p>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3795.jpg" alt="Entrance of a covered shopping arcade in Kyoto" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>The covered arcade that saved the afternoon — Kyoto's secret weapon on a rainy day.</figcaption>
+                </figure>
+            </div>
+
+            <p>The rain finally ruled out Fushimi Inari for the day. We circled back to the market, and that's when I spotted — half by accident, half by destiny — an Indian restaurant. On a rainy anniversary, the heart wants comfort food. <strong>Delhi Restaurant, Kyoto</strong>: <strong>chole bhature</strong>, <strong>onion parantha</strong>, run by a Dehradun-wala for the last 20 years. I would not have planned this anniversary any differently than to watch the look on Harshit's face after a plate of Indian food on the other side of the world.</p>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3796.jpg" alt="Plate of chole bhature at Delhi Restaurant, Kyoto" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>Chole bhature at Delhi Restaurant, Kyoto. Run by a Dehradun-wala for 20 years — and tasting exactly like the home he carried over.</figcaption>
+                </figure>
+            </div>
+
+            <p>I have a thousand things racing through my head at any moment; he is calm and sweet, and his quietest joy still lives in food that tastes like home. I feel lucky to come from a populated ethnicity — his comfort, I can find for him almost anywhere in the world 😀.</p>
+
+            <div class="travel-pullquote" style="border-left-color: var(--accent-forest);">
+                <p>I would not have planned this anniversary any differently than to watch the look on Harshit's face after a plate of chole bhature on the other side of the world.</p>
+            </div>
+
+            <h2 id="day-3-fushimi-inari">Day 3: 24th April<br><span class="day-subhead">Torii Gates, Ramen, &amp; the Long Walk Home</span></h2>
+
+            <p>The famous <strong>Fushimi Inari</strong> day, and our last in Kyoto. We've been slow-paced this entire trip and today's wake-up made no apologies for it: brunch at noon. We chose <strong>Ain Soph Kyoto</strong> — we'd already fallen for Ain Soph Ginza in Tokyo and this branch held the line beautifully. Then, because matcha had us in its grip, we walked to <strong>MACCHA HOUSE (抹茶館)</strong> for a parfait. Wow. Simply wow. We added the seasonal <strong>matcha-strawberry-sakura latte</strong> and that, too, was outstanding — bright, faintly floral, the strawberry doing exactly enough.</p>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_3807-COLLAGE.jpg" alt="Vegan burger at Ain Soph Kyoto and matcha parfaits at MACCHA HOUSE" loading="lazy" style="width:100%;border-radius:12px;">
+                    <figcaption>Day 3 brunch tour — the legendary vegan burger at Ain Soph Kyoto, then matcha parfaits and the sakura-strawberry latte at MACCHA HOUSE.</figcaption>
+                </figure>
+            </div>
+
+            <p>Heavy brunch behind us, Golu was set on the hike. We had talked about doing the traditional <strong>kimono</strong> rental — I'd originally planned it for the anniversary; the rain killed that — and decided, with very little debate, that the money was better spent on a second matcha parfait 😛.</p>
+
+            <p>We reached <strong>Fushimi Inari Taisha</strong> at <strong>1:15 p.m.</strong> and started up. Walking through those endless vermilion <strong>Torii gates</strong> hits in a way you can't quite put into words. You don't need to read the kanji on each one for the place to get under your skin. We climbed to a clearing where the city opens up beneath you. On the way down I outpaced Harshit, who got mildly annoyed by my speed. He was back to normal by the time we reached the foot of the mountain. More photos, more watching strangers pray, more watching them tie wishes onto small wooden boards.</p>
+
+            <div class="wp-block-image">
+                <figure>
+                    <img src="assets/wp-uploads/2026/05/kyoto/IMG_4011-COLLAGE.jpg" alt="Inside the vermilion Torii tunnel at Fushimi Inari" loading="lazy" style="width:100%;border-radius:12px;">
                     <figcaption>You don't read the gates. You just walk through them, and they walk through you.</figcaption>
                 </figure>
             </div>
 
-            <p>The market around Fushimi Inari is mostly non-veg, so we headed back to central Kyoto for round two of shopping — this time <strong>skincare</strong>. After some research I'd locked in on <strong>OS Drugstore</strong> as the best price point, with <strong>Matsumoto Kiyoshi</strong> as a comparison stop. We bounced between the two for the best deals, plus gums, plus jellies — too many products, too many translations.</p>
+            <p>The market around Fushimi Inari is mostly non-veg, so we headed back to central Kyoto for round two of shopping: <strong>skincare</strong>. After enough late-night research, I'd locked in on <strong>OS Drugstore</strong> as the best price-point store, with <strong>Matsumoto Kiyoshi</strong> as the comparison. We bounced between the two for the best deals — plus Japanese gums, plus jellies, plus too many labels in too many translations.</p>
 
-            <p>Dinner was the very famous <strong>Kyoto Engine</strong>. One absolute MUST EAT. We finished two bowls of ramen in no time. <strong>The best ramen we've ever had.</strong> I crave it just writing this. Who would have imagined that <strong>vegetarian chilli ramen</strong> would be the highlight of a Japanese trip? Naturally, a parfait followed for dessert — Kyoto Engine had what felt like a thousand varieties on display. With so much sugar in us, we walked back to the hotel to enjoy the last night. Then came the pack: Kyoto to Osaka, route figured out, two suitcases, one backpack, all the shopping.</p>
+            <div class="must-visit-box" style="background:linear-gradient(135deg, rgba(255,126,95,0.06), rgba(46,125,50,0.05)); border-left:4px solid var(--accent-terracotta);">
+                <h3 style="margin-top:0;">🧴 Kyoto Skincare Shopping — How We Saved</h3>
+                <ul style="margin:0; padding-left:18px; font-size:0.98rem; line-height:1.7;">
+                    <li><strong>Compare 2 stores minimum.</strong> Same product can differ 20–30% between OS Drugstore and Matsumoto Kiyoshi a block apart.</li>
+                    <li><strong>OS Drugstore</strong> tends to win on serums &amp; lotions; <strong>Matsumoto Kiyoshi</strong> wins on sheet masks &amp; sunscreens.</li>
+                    <li><strong>Carry your passport</strong> — both chains offer tax-free over ¥5,000.</li>
+                    <li><strong>Snack aisle = souvenir gold.</strong> Konjac jellies, melon gums, sakura KitKats. Don't be us — buy the 14-flavour pack.</li>
+                </ul>
+            </div>
+
+            <p>Dinner was the very famous <strong>Kyoto Engine</strong>. One absolute MUST EAT. We finished two bowls of ramen in no time. <strong>The best ramen we have ever had</strong> — full stop. I crave it just writing this. Who would have imagined the highlight of a Japanese trip would be a <strong>vegetarian chilli ramen</strong>? Naturally a parfait followed for dessert; Kyoto Engine had what felt like a thousand varieties on the display board. With so much sugar in our blood and rain in our shoes, we walked back to the hotel to enjoy our last Kyoto night. Then came the pack: route to Osaka figured out, two suitcases and a fully-packed backpack lined up by the door.</p>
 
             <div class="travel-pullquote">
                 <p>Kyoto teaches you to slow down — not because you have to, but because the city refuses to be rushed. Even the rain in Kyoto walks.</p>
             </div>
 
+            <h2 id="trip-map">Where It All Happened</h2>
+
+            <p>Three days, one ancient capital, a lot of rain and a lot of matcha. Pan the map, click a pin — each one is a moment above.</p>
+
+            <div id="kyoto-map" style="height:420px;width:100%;border-radius:14px;margin:18px 0 32px;box-shadow:0 8px 28px rgba(0,0,0,0.10);z-index:0;"></div>
+
             <div class="must-visit-box">
                 <h3>Must-Do in Kyoto</h3>
                 <ul class="must-visit-list">
-                    <li><strong>Uji Town for Matcha</strong>: Go early, most shops close by 6pm.</li>
-                    <li><strong>Kiyomizudera &amp; Sannenzaka</strong>: Best morning experience.</li>
-                    <li><strong>Kinkakuji (Golden Temple)</strong>: The real thing, even in rain.</li>
-                    <li><strong>Fushimi Inari Hike</strong>: Walk as far as the viewpoint at least.</li>
+                    <li><strong>Uji Matcha Town</strong>: Go early — most shops shut by 6 p.m.</li>
+                    <li><strong>Kiyomizu-dera &amp; Sannenzaka</strong>: Best in the soft morning light.</li>
+                    <li><strong>Kinkaku-ji</strong>: Even better in the rain.</li>
+                    <li><strong>Fushimi Inari Hike</strong>: Walk at least to the first viewpoint.</li>
                     <li><strong>Vegan Izakaya</strong>: The gyoza — don't miss it.</li>
                     <li><strong>Kyoto Engine Ramen</strong>: The best veg ramen we've ever had.</li>
                     <li><strong>Covered Market Strolling</strong>: Rain or shine, a delight.</li>
-                    <li><strong>Day Bus Pass</strong>: Worth it if you plan 4+ bus rides.</li>
+                    <li><strong>Day Bus Pass</strong>: Worth it from 4+ rides &mdash; <em>don't lose it</em>.</li>
                 </ul>
             </div>
 
@@ -117,21 +252,47 @@
         <aside>
             <div class="sidebar-wrapper">
                 <div class="glass-card widget reveal">
+                    <h3 class="widget-title">Trip at a glance</h3>
+                    <div class="trip-facts">
+                        <div><div class="fact-label">Dates</div><div class="fact-value">22 – 24 April 2026</div></div>
+                        <div><div class="fact-label">Nights</div><div class="fact-value">3</div></div>
+                        <div><div class="fact-label">Stay</div><div class="fact-value">Kiori Exec</div></div>
+                        <div><div class="fact-label">Weather</div><div class="fact-value">Cool &amp; rainy</div></div>
+                        <div><div class="fact-label">Best meal</div><div class="fact-value">Kyoto Engine ramen</div></div>
+                        <div><div class="fact-label">Vibe</div><div class="fact-value">Slow, soft, sacred</div></div>
+                    </div>
+                </div>
+
+                <div class="glass-card widget reveal">
                     <h3 class="widget-title">In this post</h3>
                     <ul class="toc-list">
-                        <li><a href="#day-1-anniversary">Day 1 · Our Anniversary in the Rain</a></li>
-                        <li><a href="#day-2-fushimi-inari">Day 2 · Fushimi Inari &amp; Kyoto Engine Ramen</a></li>
+                        <li><a href="#day-1-uji">Day 1 · Arrival &amp; Uji Matcha Trip</a></li>
+                        <li><a href="#day-2-anniversary">Day 2 · Our Anniversary in the Rain</a></li>
+                        <li><a href="#day-3-fushimi-inari">Day 3 · Fushimi Inari &amp; Kyoto Engine Ramen</a></li>
+                        <li><a href="#trip-map">Where It All Happened</a></li>
                     </ul>
                 </div>
 
                 <div class="glass-card widget reveal">
                     <h3 class="widget-title">Snapshots</h3>
-                    <div class="photo-grid-mini" aria-label="Photo placeholders — swap once uploaded">
-                        <div class="mini-photo" style="background-image:url('photos/Japan/_thumbs/IMG_3048.jpg');background-size:cover;background-position:center;" title="Uji matcha parfait"></div>
-                        <div class="mini-photo" style="background-image:url('photos/Japan/_thumbs/IMG_3049.jpg');background-size:cover;background-position:center;" title="Kinkakuji in the rain"></div>
-                        <div class="mini-photo" style="background-image:url('photos/Japan/_thumbs/IMG_3051.jpg');background-size:cover;background-position:center;" title="Fushimi Inari Torii tunnel"></div>
-                        <div class="mini-photo" style="background-image:url('photos/Japan/_thumbs/IMG_3052.jpg');background-size:cover;background-position:center;" title="Vegan Izakaya gyoza"></div>
+                    <div class="photo-grid-mini" aria-label="Kyoto snapshots">
+                        <div class="mini-photo" style="background-image:url('assets/wp-uploads/2026/05/kyoto/IMG_3278.jpg');background-size:cover;background-position:center;" title="A bowl of whisked matcha in Uji"></div>
+                        <div class="mini-photo" style="background-image:url('assets/wp-uploads/2026/05/kyoto/IMG_3780.jpg');background-size:cover;background-position:center;" title="Kinkaku-ji in the rain"></div>
+                        <div class="mini-photo" style="background-image:url('assets/wp-uploads/2026/05/kyoto/IMG_4011-COLLAGE.jpg');background-size:cover;background-position:center;" title="Fushimi Inari Torii tunnel"></div>
+                        <div class="mini-photo" style="background-image:url('assets/wp-uploads/2026/05/kyoto/IMG_3796.jpg');background-size:cover;background-position:center;" title="Chole bhature at Delhi Restaurant, Kyoto"></div>
                     </div>
+                </div>
+
+                <div class="glass-card widget reveal">
+                    <h3 class="widget-title">By the numbers</h3>
+                    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:0.9rem;">
+                        <li><strong>5</strong> — years together (and counting)</li>
+                        <li><strong>320 ¥</strong> — what one Suica bus ride was costing us</li>
+                        <li><strong>2</strong> — matcha parfaits in 24 hours (no regrets)</li>
+                        <li><strong>1</strong> — lost day bus pass at Kinkaku-ji 😅</li>
+                        <li><strong>10,000+</strong> — Torii gates at Fushimi Inari</li>
+                        <li><strong>20</strong> — years a Dehradun-wala has run Delhi Restaurant, Kyoto</li>
+                    </ul>
                 </div>
 
                 <div class="glass-card widget reveal">
@@ -242,6 +403,34 @@
                 <a href="disclaimer.html">Disclaimer</a>
             </div></div>
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+    (function() {
+      var el = document.getElementById('kyoto-map');
+      if (!el || typeof L === 'undefined') return;
+      var map = L.map('kyoto-map', { scrollWheelZoom: false }).setView([34.9930, 135.7610], 11);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        subdomains: 'abcd',
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+      }).addTo(map);
+      var pins = [
+        { lat: 34.8853, lng: 135.8048, title: 'Uji Matcha Town', note: 'Parfait, tea, candies, matcha noodles &middot; Day 1' },
+        { lat: 34.8843, lng: 135.8073, title: 'Uji Shrine &amp; Riverside', note: 'Sunset wander after the shops shut' },
+        { lat: 35.0036, lng: 135.7850, title: 'Vegan Izakaya (Kyoto)', note: 'Best gyoza of the entire trip &middot; Day 1 night' },
+        { lat: 34.9949, lng: 135.7850, title: 'Kiyomizu-dera', note: 'Anniversary morning in the rain &middot; Day 2' },
+        { lat: 34.9971, lng: 135.7822, title: 'Sannenzaka &amp; Ninenzaka', note: 'Sweets, apple pie, the Starbucks with floor seating' },
+        { lat: 35.0394, lng: 135.7292, title: 'Kinkaku-ji (Golden Temple)', note: 'Reflected in rain &middot; the lost day pass story' },
+        { lat: 35.0036, lng: 135.7677, title: 'Delhi Restaurant, Kyoto', note: 'Chole bhature on the anniversary &middot; run by a Dehradun-wala' },
+        { lat: 34.9671, lng: 135.7727, title: 'Fushimi Inari Taisha', note: 'Endless Torii gates &middot; viewpoint hike &middot; Day 3' },
+        { lat: 35.0036, lng: 135.7681, title: 'OS Drugstore + Matsumoto Kiyoshi', note: 'Skincare price-bouncing across stores' },
+        { lat: 35.0050, lng: 135.7670, title: 'Kyoto Engine Ramen', note: 'Vegetarian chilli ramen &middot; the best ramen we&rsquo;ve ever had' }
+      ];
+      pins.forEach(function(p) {
+        L.marker([p.lat, p.lng]).addTo(map).bindPopup('<strong>' + p.title + '</strong><br>' + p.note);
+      });
+    })();
+    </script>
     <script src="js/app.js"></script>
     <script src="search-index.js"></script>
     <script src="js/search.js"></script>
