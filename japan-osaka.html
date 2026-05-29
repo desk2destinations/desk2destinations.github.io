@@ -300,9 +300,10 @@
       var el = document.getElementById('osaka-map');
       if (!el || typeof L === 'undefined') return;
       var map = L.map('osaka-map', { scrollWheelZoom: false }).setView([34.6750, 135.5020], 11);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors'
+        subdomains: 'abcd',
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
       }).addTo(map);
       var pins = [
         { lat: 34.4099, lng: 135.2998, title: 'Rinku Premium Outlet', note: '250 shops &middot; Nike + Sketchers haul &middot; Day 1' },

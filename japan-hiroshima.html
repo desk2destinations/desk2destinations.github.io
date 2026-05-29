@@ -305,9 +305,10 @@
       var el = document.getElementById('hiroshima-map');
       if (!el || typeof L === 'undefined') return;
       var map = L.map('hiroshima-map', { scrollWheelZoom: false }).setView([34.3950, 132.4596], 14);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors'
+        subdomains: 'abcd',
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
       }).addTo(map);
       var pins = [
         { lat: 34.3978, lng: 132.4750, title: 'Hiroshima Station', note: 'Arrival from Osaka · day pass &amp; lockers' },

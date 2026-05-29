@@ -350,9 +350,10 @@
         { coords: [42.7752, 141.6925], title: 'New Chitose Airport', blurb: 'Arrival &middot; ~1h15 bus into Sapporo' }
       ];
       var map = L.map(el, { scrollWheelZoom: false }).setView([42.85, 141.20], 8);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        subdomains: 'abcd',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; CARTO'
       }).addTo(map);
       var group = L.featureGroup();
       pins.forEach(function(p) {
