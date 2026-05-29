@@ -1628,11 +1628,17 @@ textarea.form-control {
 }
 
 @media screen and (max-width: 768px) {
+    body.nav-open {
+        overflow: hidden;
+        touch-action: none;
+    }
+
     .nav-links {
-        max-height: calc(100vh - 70px);
+        max-height: calc(100dvh - 70px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
+        touch-action: pan-y;
     }
 
     .nav-item-dropdown {
