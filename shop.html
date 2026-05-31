@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop — Digital Travel Guides & Planners | Desk2Destinations</title>
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <meta name="description" content="Battle-tested travel guides, day-by-day itineraries, and Notion planners. Built from our real trips — vegetarian-friendly, indie-budget, no fluff.">
+    <link rel="canonical" href="https://desk2destinations.com/shop.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://desk2destinations.com/shop.html">
+    <meta property="og:site_name" content="Desk2Destinations">
+    <meta property="og:title" content="Shop — Digital Travel Guides & Planners | Desk2Destinations">
+    <meta property="og:description" content="Battle-tested travel guides, day-by-day itineraries, and Notion planners — built from our real trips.">
+    <meta property="og:image" content="https://desk2destinations.com/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shop — Digital Travel Guides & Planners | Desk2Destinations">
+    <meta name="twitter:description" content="Battle-tested travel guides, day-by-day itineraries, and Notion planners.">
+    <meta name="twitter:image" content="https://desk2destinations.com/assets/og-image.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <style>
+        .shop-hero { padding: 140px 0 60px 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); text-align: center; }
+        .shop-hero h1 { font-size: 3rem; margin-bottom: 20px; letter-spacing: -0.02em; }
+        .shop-hero p { max-width: 720px; margin: 0 auto; font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; }
+        .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; padding: 80px 0; }
+        .product-card { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+        .product-cover { aspect-ratio: 4/3; background-size: cover; background-position: center; position: relative; }
+        .product-badge { position: absolute; top: 14px; left: 14px; background: var(--accent-terracotta); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+        .product-body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+        .product-body h3 { font-size: 1.4rem; margin-bottom: 8px; font-family: var(--font-heading); }
+        .product-tagline { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 18px; }
+        .product-features { list-style: none; padding: 0; margin: 0 0 22px 0; }
+        .product-features li { padding-left: 22px; position: relative; font-size: 0.9rem; margin-bottom: 8px; color: var(--text-secondary); }
+        .product-features li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-forest); font-weight: 700; }
+        .product-price { font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 18px; font-family: var(--font-heading); }
+        .product-price .strike { text-decoration: line-through; color: var(--text-secondary); font-size: 1rem; font-weight: 500; margin-left: 8px; }
+        .product-cta { margin-top: auto; }
+        .coming-soon-banner { background: linear-gradient(135deg, rgba(255, 126, 95, 0.08), rgba(254, 180, 123, 0.08)); border: 1px dashed var(--accent-terracotta); padding: 28px; border-radius: 12px; text-align: center; margin: 60px 0; }
+        .why-buy { padding: 80px 0; background: var(--bg-secondary); }
+        .why-buy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 40px; }
+        .why-item { text-align: center; }
+        .why-icon { width: 56px; height: 56px; margin: 0 auto 16px; background: rgba(255,126,95,0.1); color: var(--accent-terracotta); border-radius: 50%; display:flex; align-items:center; justify-content:center; font-size: 1.6rem; }
+        .why-item h4 { margin-bottom: 8px; font-family: var(--font-heading); }
+        .why-item p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div id="site-nav"></div>
+
+    <main>
+    <section class="shop-hero">
+        <div class="container">
+            <span class="badge badge-terracotta" style="margin-bottom: 18px;">The Shop</span>
+            <h1>Travel Guides Built From <em>Real</em> Trips</h1>
+            <p>Every product here started as a Google Doc we wished existed before our own trip. Vegetarian-friendly. Built for first-timers. No fluff, no affiliate-link spam — just the day-by-day plan we actually used.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="shop-grid">
+
+            <!-- Japan PDF -->
+            <div class="product-card">
+                <div class="product-cover" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.45)), url('assets/wp-uploads/2026/05/kyoto/IMG_4011-COLLAGE.jpg');">
+                    <span class="product-badge">Bestseller</span>
+                </div>
+                <div class="product-body">
+                    <h3>Japan in 14 Days — The Complete Itinerary</h3>
+                    <p class="product-tagline">Tokyo → Kyoto → Osaka → Hiroshima → back to Tokyo. The exact route we ran in April 2026, with every train, every restaurant, every "we wish we'd known."</p>
+                    <ul class="product-features">
+                        <li>62-page PDF with day-by-day schedule</li>
+                        <li>Vegetarian / vegan restaurant maps for every city</li>
+                        <li>JR Pass vs IC card cost breakdown</li>
+                        <li>eSIM, currency, etiquette cheat-sheet</li>
+                        <li>Free lifetime updates</li>
+                    </ul>
+                    <div class="product-price">₹499<span class="strike">₹899</span></div>
+                    <div class="product-cta">
+                        <a href="#waitlist" class="btn btn-primary" style="width: 100%; text-align: center;">Join Waitlist</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notion Trip Planner -->
+            <div class="product-card">
+                <div class="product-cover" style="background: linear-gradient(135deg, #6a82fb, #fc5c7d);">
+                    <span class="product-badge" style="background: var(--accent-forest);">New</span>
+                </div>
+                <div class="product-body">
+                    <h3>Notion Trip Planner Template</h3>
+                    <p class="product-tagline">The same Notion workspace we use to plan every trip: flights tracker, packing checklist, day plan, budget split, photo brief.</p>
+                    <ul class="product-features">
+                        <li>One-click duplicate to your Notion</li>
+                        <li>Pre-built databases for hotels, restaurants, sights</li>
+                        <li>Budget calculator with currency converter</li>
+                        <li>Couples-mode: split expenses 50/50</li>
+                    </ul>
+                    <div class="product-price">₹299</div>
+                    <div class="product-cta">
+                        <a href="#waitlist" class="btn btn-primary" style="width: 100%; text-align: center;">Join Waitlist</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightroom Presets -->
+            <div class="product-card">
+                <div class="product-cover" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.45)), url('assets/wp-uploads/2026/05/kyoto/IMG_3780.jpg');">
+                    <span class="product-badge" style="background: var(--accent-gold); color: #1a1a1a;">Photo</span>
+                </div>
+                <div class="product-body">
+                    <h3>Lightroom Travel Presets — Japan Edition</h3>
+                    <p class="product-tagline">The 8 presets that turned our iPhone trip photos into the ones you see on the blog. Built for mixed lighting, neon, and overcast temple days.</p>
+                    <ul class="product-features">
+                        <li>8 Lightroom presets (.xmp + .dng)</li>
+                        <li>Mobile + Desktop versions included</li>
+                        <li>Before/after sample gallery</li>
+                        <li>Install guide PDF</li>
+                    </ul>
+                    <div class="product-price">₹399</div>
+                    <div class="product-cta">
+                        <a href="#waitlist" class="btn btn-primary" style="width: 100%; text-align: center;">Join Waitlist</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Europe Mini-Guide -->
+            <div class="product-card">
+                <div class="product-cover" style="background: linear-gradient(135deg, #f7971e, #ffd200);">
+                    <span class="product-badge" style="background: var(--accent-forest);">Coming Soon</span>
+                </div>
+                <div class="product-body">
+                    <h3>Italy + Spain Combo Itinerary</h3>
+                    <p class="product-tagline">Two weeks across Rome, Florence, Venice, Barcelona and Madrid — built for the corporate traveler with exactly 14 days of leave.</p>
+                    <ul class="product-features">
+                        <li>14-day flexible itinerary</li>
+                        <li>Train pass vs flight comparison</li>
+                        <li>Vegetarian restaurant picks in every city</li>
+                        <li>Budget breakdown in INR</li>
+                    </ul>
+                    <div class="product-price">₹599</div>
+                    <div class="product-cta">
+                        <a href="#waitlist" class="btn btn-secondary" style="width: 100%; text-align: center;">Notify Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Zealand -->
+            <div class="product-card">
+                <div class="product-cover" style="background: linear-gradient(135deg, #43cea2, #185a9d);">
+                    <span class="product-badge" style="background: var(--accent-forest);">Coming Soon</span>
+                </div>
+                <div class="product-body">
+                    <h3>New Zealand Self-Drive Playbook</h3>
+                    <p class="product-tagline">South Island + North Island in 18 days. Every campervan stop, every detour worth the time, every photo spot.</p>
+                    <ul class="product-features">
+                        <li>18-day self-drive route</li>
+                        <li>Campervan vs car + Airbnb cost math</li>
+                        <li>LOTR location bonus chapter</li>
+                        <li>Vegetarian-friendly stops</li>
+                    </ul>
+                    <div class="product-price">₹699</div>
+                    <div class="product-cta">
+                        <a href="#waitlist" class="btn btn-secondary" style="width: 100%; text-align: center;">Notify Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1:1 Consult -->
+            <div class="product-card">
+                <div class="product-cover" style="background: linear-gradient(135deg, #654ea3, #eaafc8);">
+                    <span class="product-badge" style="background: var(--accent-terracotta);">1:1</span>
+                </div>
+                <div class="product-body">
+                    <h3>Plan My Trip — 1:1 Consult</h3>
+                    <p class="product-tagline">60 minutes on Google Meet. Walk in with a destination, walk out with a day-by-day plan, hotel picks, and the questions you forgot to ask.</p>
+                    <ul class="product-features">
+                        <li>60-min video consult</li>
+                        <li>Custom Notion plan delivered within 48h</li>
+                        <li>14 days of follow-up over email</li>
+                        <li>Covers any country we've visited</li>
+                    </ul>
+                    <div class="product-price">₹2,499</div>
+                    <div class="product-cta">
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Book a Slot</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Waitlist -->
+        <div id="waitlist" class="coming-soon-banner">
+            <h3 style="margin-bottom: 12px;">Be first when the Japan PDF drops</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">Waitlist subscribers get an early-bird ₹100 off and 48-hour exclusive access before public launch.</p>
+            <form id="newsletter-form" action="https://formspree.io/f/desk2destinations93@gmail.com" method="POST" style="display:flex; gap:10px; max-width:480px; margin:0 auto; flex-wrap:wrap;">
+                <input type="hidden" name="_subject" value="Shop waitlist signup">
+                <input type="hidden" name="source" value="shop-waitlist">
+                <input type="email" name="email" placeholder="your@email.com" required class="form-control" style="flex:1; min-width:200px;">
+                <button type="submit" class="btn btn-terracotta">Join Waitlist</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="why-buy">
+        <div class="container">
+            <div style="text-align:center;">
+                <span class="badge badge-terracotta">Why Buy From Us</span>
+                <h2 style="font-size: 2.2rem; margin: 16px 0;">Built by travelers, not affiliate farms</h2>
+            </div>
+            <div class="why-buy-grid">
+                <div class="why-item">
+                    <div class="why-icon">✈</div>
+                    <h4>Tested in the field</h4>
+                    <p>Every itinerary is one we've actually walked. No copy-pasted blog summaries.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🥗</div>
+                    <h4>Vegetarian-first</h4>
+                    <p>We're Indian vegetarians. Every restaurant pick is one we ate at and recommend.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">💼</div>
+                    <h4>Corporate-traveler scale</h4>
+                    <p>Built for 7-21 day trips. No 6-month sabbatical fantasies.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🔄</div>
+                    <h4>Lifetime updates</h4>
+                    <p>Buy once, get every future revision free. Prices change, our updates don't.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col footer-about">
+                <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 16px;">
+                    <svg width="32" height="32" viewBox="0 0 64 64" fill="none" style="color:var(--text-primary);" aria-label="Logo"><defs><linearGradient id="footPlaneGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5e3a"/><stop offset="1" stop-color="#feb47b"/></linearGradient></defs><path d="M14 36 H44 L41 54 Q40 58 36 58 H22 Q18 58 17 54 Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M44 40 Q52 40 52 46 Q52 52 46 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M50 6 L26 18 L36 22 L40 32 Z" fill="url(#footPlaneGrad)"/></svg>
+                    <span style="font-family: var(--font-heading); font-weight: 700; color: var(--text-primary); font-size: 1rem;">Desk2Destinations</span>
+                </a>
+                <p>An Indian couple balancing full-time corporate jobs and part-time wanderlust.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <div class="footer-links-grid">
+                    <a href="index.html">Home</a>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="work-with-me.html">Work With Us</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Recent Adventures</h4>
+                <div class="footer-links-grid" style="grid-template-columns: 1fr;">
+                    <a href="japan-tokyo.html" style="font-size: 0.82rem;">🇯🇵 Tokyo Diary</a>
+                    <a href="japan-kyoto.html" style="font-size: 0.82rem;">🇯🇵 Kyoto Days</a>
+                    <a href="barcelona.html" style="font-size: 0.82rem;">🇪🇸 Barcelona</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Desk2Destinations. Crafted with love for modern travelers.</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a><span>&middot;</span>
+                <a href="terms.html">Terms</a><span>&middot;</span>
+                <a href="cookies.html">Cookies</a><span>&middot;</span>
+                <a href="disclaimer.html">Disclaimer</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="search-index.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>
