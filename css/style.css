@@ -372,6 +372,17 @@ button, input, textarea, select {
     width: 100%;
 }
 
+/* Keep nav readable when transparent over a dark hero (home cinematic, article-hero, etc.) */
+body:has(.cinematic-hero, .article-hero, .media-kit-hero) .site-nav:not(.scrolled) .nav-links a,
+body:has(.cinematic-hero, .article-hero, .media-kit-hero) .site-nav:not(.scrolled) .logo,
+body:has(.cinematic-hero, .article-hero, .media-kit-hero) .site-nav:not(.scrolled) .theme-toggle {
+    color: #fff1e6;
+}
+body:has(.cinematic-hero, .article-hero, .media-kit-hero) .site-nav:not(.scrolled) .theme-toggle {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
 .nav-actions {
     display: flex;
     align-items: center;
