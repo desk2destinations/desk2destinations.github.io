@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <path d="M30 30 Q34 22 40 20" fill="none" stroke="url(#navPlaneGrad)" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
                 <path d="M50 6 L26 18 L36 22 L40 32 Z" fill="url(#navPlaneGrad)"/>
             </svg>
-            <span style="font-family:var(--font-heading);font-weight:700;color:var(--text-primary);font-size:1.15rem;">Desk2Destinations</span>
+            <span style="font-family:var(--font-heading);font-weight:700;color:inherit;font-size:1.15rem;">Desk2Destinations</span>
         </a>
         <nav class="nav-links">
             <a href="index.html">Home</a>
