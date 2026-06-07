@@ -234,87 +234,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       6. COLLABORATION FORM INTAKE HANDLER (Formspree-backed)
-       Submits via fetch() to whatever URL the form's action="" points at.
-       To activate: replace YOUR_FORM_ID in contact.html with your real
-       Formspree form ID. Until then, submissions will visibly fail —
-       which is intentional, so you know it's not wired yet.
+       6. CONTACT FORM HANDLER (mailto fallback — no backend required)
+       Opens the visitor's email client with a pre-filled message addressed
+       to desk2destinations93@gmail.com. They hit Send in their client.
        ========================================================================== */
+    const SITE_EMAIL = 'desk2destinations93@gmail.com';
     const collabForm = document.getElementById('collab-form');
 
     if (collabForm) {
-        collabForm.addEventListener('submit', async (e) => {
+        collabForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
             const formData = new FormData(collabForm);
-            const name = formData.get('name') || 'friend';
-            const brand = formData.get('brand') || 'your brand';
-            const email = formData.get('email') || '';
+            const name = formData.get('Name') || formData.get('name') || 'friend';
+            const email = formData.get('Email') || formData.get('email') || '';
+            const topic = formData.get('Topic') || formData.get('topic') || 'message';
+            const message = formData.get('Message') || formData.get('message') || '';
+
+            const subject = `[Desk2Destinations] ${topic} — from ${name}`;
+            const body =
+                `Hi Ayushi & Harshit,\n\n` +
+                `${message}\n\n` +
+                `— ${name}\n` +
+                `Reply to: ${email}\n`;
+
+            const mailto = `mailto:${SITE_EMAIL}` +
+                `?subject=${encodeURIComponent(subject)}` +
+                `&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailto;
+
             const formContainer = collabForm.parentElement;
-            const submitBtn = collabForm.querySelector('button[type="submit"]');
-            if (collabForm.action.includes('YOUR_FORM_ID')) {
-                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Proposal'; }
-                alert("Our form isn't connected yet — please email hello@desk2destinations.com directly with your proposal.");
-                return;
-            }
-            if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
-
-            try {
-                const res = await fetch(collabForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (!res.ok) throw new Error('Formspree returned ' + res.status);
-
+            setTimeout(() => {
                 formContainer.innerHTML = `
-                    <div class="glass-card" style="padding: 40px; text-align: center; border-color: var(--accent-gold); max-width: 500px; margin: 0 auto; animation: fadeInUp 0.6s ease-out forwards;">
+                    <div class="glass-card" style="padding: 40px; text-align: center; border-color: var(--accent-gold); max-width: 500px; margin: 0 auto;">
                         <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(255, 126, 95, 0.12); color: var(--accent-forest); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto;">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         </div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 12px; color: var(--text-primary);">Proposal Received!</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6;">
-                            Thank you, <strong>${name}</strong>. We're thrilled about the opportunity to partner with <strong>${brand}</strong>.
-                            We'll reply to <strong>${email}</strong> within 24 hours.
+                        <h3 style="font-size: 1.8rem; margin-bottom: 12px; color: var(--text-primary);">Your email is ready, ${name}!</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.6;">
+                            We just opened your email app with a pre-filled message to <strong>${SITE_EMAIL}</strong>. Hit <em>Send</em> and we'll write back within a day or two.
                         </p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Nothing opened? Email us directly at <a href="mailto:${SITE_EMAIL}" style="color: var(--accent-terracotta); font-weight: 600;">${SITE_EMAIL}</a>.</p>
                     </div>
                 `;
-            } catch (err) {
-                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Proposal'; }
-                alert("Couldn't send the message — the contact form isn't fully connected yet. Please email hello@desk2destinations.com directly.");
-                console.error(err);
-            }
+            }, 400);
         });
     }
 
     /* ==========================================================================
-       6b. NEWSLETTER FORM (Formspree-backed)
+       6b. NEWSLETTER FORM (mailto fallback)
        ========================================================================== */
     const newsletterForm = document.getElementById('newsletter-form');
     if (newsletterForm) {
-        newsletterForm.addEventListener('submit', async (e) => {
+        newsletterForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const submitBtn = newsletterForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn ? submitBtn.textContent : '';
-            if (newsletterForm.action.includes('YOUR_FORM_ID')) {
-                newsletterForm.innerHTML = '<p style="color: var(--accent-forest); font-weight: 600; padding: 16px;">✓ Thanks — please email hello@desk2destinations.com and we\'ll add you manually until our newsletter system is live.</p>';
-                return;
-            }
-            if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
-            try {
-                const res = await fetch(newsletterForm.action, {
-                    method: 'POST',
-                    body: new FormData(newsletterForm),
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (!res.ok) throw new Error('Formspree returned ' + res.status);
-                newsletterForm.innerHTML = '<p style="color: var(--accent-forest); font-weight: 600; padding: 16px;">✓ You\'re in. Welcome to the Desk2Destinations family.</p>';
-            } catch (err) {
-                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
-                alert("Couldn't subscribe right now — newsletter isn't fully connected yet. Please email hello@desk2destinations.com to be added manually.");
-                console.error(err);
-            }
+            const email = new FormData(newsletterForm).get('email') || new FormData(newsletterForm).get('Email') || '';
+            const subject = '[Desk2Destinations] Newsletter signup';
+            const body = `Hi — please add me to the Desk2Destinations newsletter.\n\nMy email: ${email}\n`;
+            const mailto = `mailto:${SITE_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailto;
+            setTimeout(() => {
+                newsletterForm.innerHTML = `<p style="color: var(--accent-forest); font-weight: 600; padding: 16px;">✓ Your email app should be open — hit Send and you're in. (If nothing opened, write to <a href="mailto:${SITE_EMAIL}" style="color: var(--accent-terracotta);">${SITE_EMAIL}</a>.)</p>`;
+            }, 400);
         });
     }
 
