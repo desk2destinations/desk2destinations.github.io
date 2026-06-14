@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Preview — Showcase Ideas | Desk2Destinations</title>
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background: var(--bg-secondary); }
+        .preview-hero { padding: 110px 0 30px; text-align: center; background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+        .preview-hero h1 { font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 8px; }
+        .preview-hero p { color: var(--text-secondary); max-width: 640px; margin: 0 auto; }
+        .preview-tabs { display: flex; gap: 8px; justify-content: center; padding: 24px 12px 0; flex-wrap: wrap; }
+        .preview-tab { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: all .2s; }
+        .preview-tab.active { background: var(--accent-terracotta); color: #fff; border-color: var(--accent-terracotta); }
+        .preview-tab:hover { transform: translateY(-1px); }
+        .preview-section { padding: 30px 14px 80px; max-width: 1400px; margin: 0 auto; display: none; }
+        .preview-section.active { display: block; }
+        .preview-section > h2 { text-align: center; font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 6px; }
+        .preview-section > .why { text-align: center; color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 28px; }
+
+        /* === Idea A: Country filter chips === */
+        .filter-chips { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; padding: 18px 12px; background: var(--bg-primary); border-radius: 14px; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+        .chip { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border-color); background: transparent; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); transition: all .15s; }
+        .chip.active { background: var(--accent-terracotta); color: #fff; border-color: var(--accent-terracotta); }
+        .chip:hover:not(.active) { background: var(--bg-secondary); }
+
+        /* === Grid base === */
+        .grid-square { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px; }
+        .grid-square .item { position: relative; aspect-ratio: 1/1; overflow: hidden; border-radius: 6px; background: var(--bg-primary); cursor: pointer; }
+        .grid-square .item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s; }
+        .grid-square .item:hover img { transform: scale(1.06); }
+
+        /* === Idea B: Hover caption === */
+        .item .caption {
+            position: absolute; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.85), rgba(0,0,0,0));
+            color: #fff; padding: 28px 12px 12px; font-size: 0.78rem;
+            transform: translateY(100%); transition: transform .25s ease;
+            line-height: 1.35;
+        }
+        .item:hover .caption { transform: translateY(0); }
+        .caption .dish { font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 2px; font-family: var(--font-heading); }
+        .caption .where { opacity: 0.85; font-size: 0.72rem; }
+        .item .country-flag { position: absolute; top: 8px; left: 8px; font-size: 1.1rem; background: rgba(0,0,0,0.55); padding: 3px 8px; border-radius: 999px; backdrop-filter: blur(6px); }
+
+        /* === Idea C: Masonry === */
+        .grid-masonry { columns: 5 200px; column-gap: 6px; }
+        .grid-masonry .item { break-inside: avoid; margin-bottom: 6px; aspect-ratio: auto; height: auto; position: relative; overflow: hidden; border-radius: 6px; cursor: pointer; }
+        .grid-masonry .item img { width: 100%; height: auto; display: block; transition: transform .35s; }
+        .grid-masonry .item:hover img { transform: scale(1.04); }
+
+        /* === Idea D: Best Bites strip === */
+        .best-bites { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 28px; }
+        .best-bites .item { aspect-ratio: 1/1; border-radius: 10px; overflow: hidden; position: relative; cursor: pointer; box-shadow: var(--shadow-md); }
+        .best-bites .item img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+        .best-bites .item:hover img { transform: scale(1.08); }
+        .best-bites .item .pin { position: absolute; top: 6px; right: 6px; background: var(--accent-gold); color: #1a1a1a; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        @media (max-width: 720px) {
+            .best-bites { grid-template-columns: repeat(3, 1fr); }
+            .grid-masonry { columns: 2 150px; }
+        }
+    </style>
+    <!-- Travelpayouts Drive -->
+    <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+      (function () {
+        var script = document.createElement("script");
+        script.async = 1;
+        script.src = 'https://emrld.ltd/NTM5NzI5.js?t=539729';
+        document.head.appendChild(script);
+      })();
+    </script>
+</head>
+<body>
+    <div id="site-nav"></div>
+
+    <section class="preview-hero">
+        <div class="container">
+            <h1>Food Gallery — Design Previews</h1>
+            <p>Click each tab to compare. Pick what feels right and I'll apply it to the full 258-photo gallery.</p>
+        </div>
+    </section>
+
+    <div class="preview-tabs">
+        <button class="preview-tab active" data-tab="a">A · Country Filter</button>
+        <button class="preview-tab" data-tab="b">B · Hover Captions</button>
+        <button class="preview-tab" data-tab="c">C · Masonry</button>
+        <button class="preview-tab" data-tab="d">D · Best Bites Strip</button>
+        <button class="preview-tab" data-tab="combo">★ Recommended Combo</button>
+    </div>
+
+    <!-- A: Country filter -->
+    <section class="preview-section active" data-section="a">
+        <h2>A · Country filter chips</h2>
+        <p class="why">Click a chip to filter. Biggest UX win — turns a 258-photo wall into a country-by-country tasting menu.</p>
+        <div class="filter-chips" id="chips-a">
+            <button class="chip active" data-c="all">All</button>
+            <button class="chip" data-c="jp">🇯🇵 Japan</button>
+            <button class="chip" data-c="es">🇪🇸 Spain</button>
+            <button class="chip" data-c="it">🇮🇹 Italy</button>
+            <button class="chip" data-c="de">🇩🇪 Germany</button>
+            <button class="chip" data-c="in">🇮🇳 India</button>
+        </div>
+        <div class="grid-square" id="grid-a"></div>
+    </section>
+
+    <!-- B: Hover captions -->
+    <section class="preview-section" data-section="b">
+        <h2>B · Hover captions</h2>
+        <p class="why">Dish name + city slides up on hover. Turns the wall from decoration into a memory-jogger.</p>
+        <div class="grid-square" id="grid-b"></div>
+    </section>
+
+    <!-- C: Masonry -->
+    <section class="preview-section" data-section="c">
+        <h2>C · Masonry layout</h2>
+        <p class="why">Native aspect ratios, no square cropping. Looks more "magazine," less "Instagram grid."</p>
+        <div class="grid-masonry" id="grid-c"></div>
+    </section>
+
+    <!-- D: Best Bites -->
+    <section class="preview-section" data-section="d">
+        <h2>D · "Best Bites" hero strip</h2>
+        <p class="why">Hand-picked top 6 photos pinned at the top, before the long scroll. Anchors casual visitors.</p>
+        <div class="best-bites" id="grid-d"></div>
+        <p class="why" style="margin-top: 24px;">Then the rest of the gallery flows below ↓</p>
+        <div class="grid-square" id="grid-d-rest"></div>
+    </section>
+
+    <!-- Combo -->
+    <section class="preview-section" data-section="combo">
+        <h2>★ Recommended Combo (A + B + D)</h2>
+        <p class="why">Best Bites strip → Country filter → Masonry-ish grid with hover captions and country flag pin.</p>
+        <div class="best-bites" id="grid-combo-best"></div>
+        <div class="filter-chips" id="chips-combo">
+            <button class="chip active" data-c="all">All</button>
+            <button class="chip" data-c="jp">🇯🇵 Japan</button>
+            <button class="chip" data-c="es">🇪🇸 Spain</button>
+            <button class="chip" data-c="it">🇮🇹 Italy</button>
+            <button class="chip" data-c="de">🇩🇪 Germany</button>
+            <button class="chip" data-c="in">🇮🇳 India</button>
+        </div>
+        <div class="grid-square" id="grid-combo"></div>
+    </section>
+
+    <script>
+        // Demo photo set with mock dish/country tags
+        const PHOTOS = [
+            { f: '20240321_191516', c: 'jp', flag: '🇯🇵', dish: 'Konbini Onigiri', where: 'Tokyo' },
+            { f: '20240322_205013', c: 'jp', flag: '🇯🇵', dish: "Rikuro's Cheesecake", where: 'Osaka' },
+            { f: '20240323_155301', c: 'jp', flag: '🇯🇵', dish: 'Matcha Castella', where: 'Uji, Kyoto' },
+            { f: '20240323_155305', c: 'jp', flag: '🇯🇵', dish: 'Matcha Parfait', where: 'Kyoto' },
+            { f: '20240323_203229', c: 'jp', flag: '🇯🇵', dish: 'Vegan Gyoza', where: 'Kyoto' },
+            { f: '20240323_203233', c: 'jp', flag: '🇯🇵', dish: 'Veg Chilli Ramen', where: 'Kyoto' },
+            { f: '20240324_142018', c: 'jp', flag: '🇯🇵', dish: 'Tofu Set Meal', where: 'Nanzen-ji' },
+            { f: '20240324_193839', c: 'jp', flag: '🇯🇵', dish: 'Hatoya Matcha', where: 'Asakusa' },
+            { f: '20240325_193821', c: 'jp', flag: '🇯🇵', dish: "Ain Soph Ginza", where: 'Tokyo' },
+            { f: '20240326_195335', c: 'jp', flag: '🇯🇵', dish: "T's TanTan Ramen", where: 'Tokyo Stn' },
+            { f: '20240329_135726', c: 'es', flag: '🇪🇸', dish: 'Patatas Bravas', where: 'Barcelona' },
+            { f: '20240329_135732', c: 'es', flag: '🇪🇸', dish: 'Teresa Carles', where: 'Barcelona' },
+            { f: '20240329_135739', c: 'es', flag: '🇪🇸', dish: 'La Boqueria', where: 'Barcelona' },
+            { f: '20240330_200251', c: 'es', flag: '🇪🇸', dish: 'Churros & Chocolate', where: 'Madrid' },
+            { f: '20240330_200808', c: 'es', flag: '🇪🇸', dish: 'La Campana', where: 'Seville' },
+            { f: '20240331_104258', c: 'es', flag: '🇪🇸', dish: 'Vegan Arepas', where: 'Seville' },
+            { f: '20240331_142605', c: 'it', flag: '🇮🇹', dish: 'Pizza Margherita', where: 'Rome' },
+            { f: '20240331_142823', c: 'it', flag: '🇮🇹', dish: 'Cacio e Pepe', where: 'Rome' },
+            { f: '20240331_185455', c: 'it', flag: '🇮🇹', dish: 'Tiramisu', where: 'Trastevere' },
+            { f: '20240401_144600', c: 'it', flag: '🇮🇹', dish: 'Granita di Limone', where: 'Amalfi' },
+            { f: '20240401_144605', c: 'it', flag: '🇮🇹', dish: 'Romeo Gelateria', where: 'Rome' },
+            { f: '20240401_144627', c: 'it', flag: '🇮🇹', dish: 'Gustapizza', where: 'Florence' },
+            { f: '20240401_183823', c: 'de', flag: '🇩🇪', dish: 'Käsespätzle', where: 'Stuttgart' },
+            { f: '20240401_214004', c: 'de', flag: '🇩🇪', dish: 'Black Forest Cake', where: 'Triberg' },
+            { f: '20240401_214102', c: 'de', flag: '🇩🇪', dish: 'Markthalle Pretzel', where: 'Stuttgart' },
+            { f: '20240401_214654', c: 'de', flag: '🇩🇪', dish: 'Currywurst (Veg)', where: 'Berlin' },
+            { f: '20240402_213950', c: 'in', flag: '🇮🇳', dish: 'Masala Dosa', where: 'Bengaluru' },
+            { f: '20230602_193133', c: 'in', flag: '🇮🇳', dish: 'Pav Bhaji', where: 'Mumbai' },
+            { f: '20240803_213102', c: 'in', flag: '🇮🇳', dish: 'Rasmalai', where: 'Kolkata' },
+            { f: '20240803_213806', c: 'in', flag: '🇮🇳', dish: 'KC Das Rosogolla', where: 'Kolkata' },
+        ];
+        const BEST = [PHOTOS[1], PHOTOS[3], PHOTOS[16], PHOTOS[19], PHOTOS[23], PHOTOS[28]];
+
+        const T = (p) => `assets/food-gallery/${p.f}.thumb.webp`;
+        const F = (p) => `assets/food-gallery/${p.f}.webp`;
+
+        function itemHtml(p, opts = {}) {
+            const cap = opts.caption ? `<div class="caption"><span class="dish">${p.dish}</span><span class="where">${p.where}</span></div>` : '';
+            const flag = opts.flag ? `<div class="country-flag">${p.flag}</div>` : '';
+            return `<div class="item" data-c="${p.c}"><img src="${T(p)}" alt="${p.dish}" loading="lazy">${flag}${cap}</div>`;
+        }
+
+        // Render A: country filter, plain grid
+        document.getElementById('grid-a').innerHTML = PHOTOS.map(p => itemHtml(p, { flag: true })).join('');
+        // Render B: hover captions
+        document.getElementById('grid-b').innerHTML = PHOTOS.map(p => itemHtml(p, { caption: true })).join('');
+        // Render C: masonry — note: masonry uses real aspect ratio, so use full webp
+        document.getElementById('grid-c').innerHTML = PHOTOS.map(p =>
+            `<div class="item"><img src="${T(p)}" alt="${p.dish}" loading="lazy"></div>`
+        ).join('');
+        // Render D: best bites + rest
+        document.getElementById('grid-d').innerHTML = BEST.map(p =>
+            `<div class="item"><img src="${T(p)}" alt="${p.dish}" loading="lazy"><div class="pin">★ Best</div></div>`
+        ).join('');
+        document.getElementById('grid-d-rest').innerHTML = PHOTOS.filter(p => !BEST.includes(p)).map(p => itemHtml(p)).join('');
+        // Render Combo: best + filter + grid with caption + flag
+        document.getElementById('grid-combo-best').innerHTML = BEST.map(p =>
+            `<div class="item"><img src="${T(p)}" alt="${p.dish}" loading="lazy"><div class="pin">★ Best</div></div>`
+        ).join('');
+        document.getElementById('grid-combo').innerHTML = PHOTOS.map(p => itemHtml(p, { caption: true, flag: true })).join('');
+
+        // Tab switching
+        document.querySelectorAll('.preview-tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.preview-tab').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.preview-section').forEach(s => s.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelector(`[data-section="${btn.dataset.tab}"]`).classList.add('active');
+            });
+        });
+
+        // Country chip filtering (works for both A and Combo)
+        function wireChips(chipsEl, gridEl) {
+            chipsEl.addEventListener('click', e => {
+                const btn = e.target.closest('.chip');
+                if (!btn) return;
+                chipsEl.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                const c = btn.dataset.c;
+                gridEl.querySelectorAll('.item').forEach(it => {
+                    it.style.display = (c === 'all' || it.dataset.c === c) ? '' : 'none';
+                });
+            });
+        }
+        wireChips(document.getElementById('chips-a'), document.getElementById('grid-a'));
+        wireChips(document.getElementById('chips-combo'), document.getElementById('grid-combo'));
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>

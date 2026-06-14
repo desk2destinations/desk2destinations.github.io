@@ -2742,3 +2742,70 @@ h1 em, h2 em, h3 em, h4 em {
 .footer-legal a:hover { color: var(--accent-terracotta); }
 .footer-legal span { opacity: 0.4; }
 
+/* === Google Translate Widget === */
+/* Hide Google's default banner-frame (it pushes the body down) */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; position: static !important; }
+
+/* Hide Google's "Powered by" attribution & helper text but keep the dropdown working */
+.goog-logo-link,
+.goog-te-gadget > span,
+.goog-te-gadget img { display: none !important; }
+.goog-te-gadget {
+    font-size: 0 !important; /* kills the stray text node next to the select */
+    color: transparent !important;
+}
+
+/* Compact, inline widget that matches the nav buttons */
+#google_translate_element {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 4px;
+    line-height: 1;
+}
+#google_translate_element .goog-te-gadget-simple {
+    background: transparent !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 999px !important;
+    padding: 4px 10px !important;
+    font-family: var(--font-body, inherit) !important;
+    font-size: 0.78rem !important;
+    color: var(--text-primary) !important;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
+    cursor: pointer;
+}
+#google_translate_element .goog-te-gadget-simple:hover {
+    border-color: var(--accent-terracotta) !important;
+    color: var(--accent-terracotta) !important;
+}
+#google_translate_element .goog-te-gadget-simple .goog-te-menu-value {
+    color: inherit !important;
+    font-size: 0.78rem !important;
+}
+#google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
+    color: inherit !important;
+    border-color: currentColor !important;
+}
+/* Avoid Google injecting iframes that break our sticky header */
+iframe.goog-te-menu-frame { box-shadow: var(--shadow-md) !important; border-radius: 8px !important; }
+
+/* Mobile: keep visible but tighter; on very small screens hide to avoid wrap */
+@media (max-width: 900px) {
+    #google_translate_element { margin-right: 2px; }
+    #google_translate_element .goog-te-gadget-simple {
+        padding: 3px 8px !important;
+        font-size: 0.72rem !important;
+    }
+}
+@media (max-width: 480px) {
+    #google_translate_element { display: none; }
+    body.nav-open #google_translate_element {
+        display: inline-flex;
+        position: fixed;
+        top: 18px;
+        right: 64px;
+        z-index: 1000;
+    }
+}
+
