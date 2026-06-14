@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="contact.html">Contact Us</a>
         </nav>
         <div class="nav-actions">
-            <div id="google_translate_element" aria-label="Translate this site"></div>
             <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle dark/light theme"><svg viewBox="0 0 24 24"></svg></button>
             <button class="search-toggle" id="search-toggle-btn" aria-label="Search the site">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -55,23 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMount = document.getElementById('site-nav');
     if (navMount) {
         navMount.outerHTML = NAV_HTML;
-    }
-
-    /* ==========================================================================
-       0b. GOOGLE TRANSLATE WIDGET (loaded once after nav is mounted)
-       ========================================================================== */
-    if (!window.__gtInjected) {
-        window.__gtInjected = true;
-        window.googleTranslateElementInit = function () {
-            new google.translate.TranslateElement(
-                { pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
-                'google_translate_element'
-            );
-        };
-        const gtScript = document.createElement('script');
-        gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        gtScript.async = true;
-        document.body.appendChild(gtScript);
     }
 
     // --- Mark active link based on current page filename ---
