@@ -1,3 +1,7 @@
 
 # Raw photo sources (compressed copies live in assets/food-gallery/)
 assets/wp-uploads/2026/05/Food pictures/
+
+# Python build-script bytecode
+__pycache__/
+*.pyc
