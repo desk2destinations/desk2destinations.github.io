@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const NAV_HTML = `
 <header class="site-nav">
     <div class="container nav-container">
-        <a href="index.html" class="logo" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-primary);">
-            <svg width="40" height="40" viewBox="0 0 64 64" fill="none" aria-label="Desk2Destinations Logo">
+        <a href="index.html" class="logo" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;">
+            <svg width="40" height="40" viewBox="0 0 64 64" fill="none" style="color:#fff;" aria-label="Desk2Destinations Logo">
                 <defs><linearGradient id="navPlaneGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5e3a"/><stop offset="1" stop-color="#feb47b"/></linearGradient></defs>
                 <path d="M14 36 H44 L41 54 Q40 58 36 58 H22 Q18 58 17 54 Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
                 <path d="M44 40 Q52 40 52 46 Q52 52 46 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <path d="M30 30 Q34 22 40 20" fill="none" stroke="url(#navPlaneGrad)" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
                 <path d="M50 6 L26 18 L36 22 L40 32 Z" fill="url(#navPlaneGrad)"/>
             </svg>
-            <span style="font-family:var(--font-heading);font-weight:700;color:inherit;font-size:1.15rem;">Desk2Destinations</span>
+            <span style="font-family:var(--font-heading);font-weight:700;color:#fff;font-size:1.15rem;">Desk2Destinations</span>
         </a>
         <nav class="nav-links">
             <a href="index.html">Home</a>
