@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="dropdown-col"><div class="dropdown-category">More</div><a href="sweden-malmo.html" class="dropdown-item">Sweden (Malm&ouml; &amp; Lund)</a><a href="denmark-copenhagen.html" class="dropdown-item">Denmark (Copenhagen)</a><a href="czech-prague.html" class="dropdown-item">Czech Republic (Prague)</a></div>
                 </div>
             </div>
+            <a href="guides.html">Field Guides</a>
             <a href="food.html">Food Around the World</a>
             <a href="books.html">Books</a>
             <a href="about.html">About Us</a>
